@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import './App.css';
+
+// stylings
+import './styles/App.css';
+import './styles/Navbar.css'
+
+// import bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   state = {
-
+    
   }
 
   render () {
     return (
-      <div className="App">
-        hello world
-      </div>
+      <body>
+        <div className="App">
+          <div class="container-fluid no-padding">
+            <Navbar />
+            hello world
+          </div>
+        </div>
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+      </body>
     );
   }
 }
