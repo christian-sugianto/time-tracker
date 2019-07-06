@@ -1,3 +1,34 @@
-.no-padding {
-    padding: 0 !important;
+.navbar-color {
+    background-color: #634832;
+}
+
+#container-override {
+    padding: 0;
+}
+
+#nav-link-override {
+    color: white;
+    font-size: 20px;
+    padding-left: 15px;
+}
+
+#right-navbar-nav-override {
+    padding-right: 20px;
+}
+
+#img-override {
+    height: auto; 
+    width: auto; 
+    max-width: 30px; 
+    max-height: 30px;
+}
+
+#navbar-brand-override{
+    font-weight: bold;
+    -webkit-text-stroke: 1.5px black;
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    
 }

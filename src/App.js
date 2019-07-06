@@ -4,7 +4,6 @@ import Navbar from './components/layout/Navbar';
 
 // stylings
 import './styles/App.css';
-import './styles/Navbar.css'
 
 // import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,9 +17,8 @@ class App extends Component {
     return (
       <body>
         <div className="App">
-          <div class="container-fluid no-padding">
+          <div class="container-fluid" id="container-override">
             <Navbar />
-            hello world
           </div>
         </div>
 
