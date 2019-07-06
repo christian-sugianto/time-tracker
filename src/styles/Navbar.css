@@ -23,6 +23,14 @@
     max-height: 30px;
 }
 
+#small-img-override {
+    height: auto;
+    width: auto;
+    max-width: 20px;
+    max-height: 20px;
+    padding-right: 3px;
+}
+
 #navbar-brand-override{
     font-weight: bold;
     -webkit-text-stroke: 1.5px black;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ClockPicture from '../assets/clock.png'
+import LoginPicture from '../assets/login.png'
+import SignupPicture from '../assets/signup.png'
 
 function Navbar() {
     return (
@@ -25,13 +27,21 @@ function Navbar() {
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Signup</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">
+                            <img src={SignupPicture} id="small-img-override"></img>
+                            Signup
+                        </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">
+                            <img src={LoginPicture} id="small-img-override"></img>
+                            Login
+                        </a>
                     </li>
                 </ul>
             </div>
+
+            
         </nav>
     )
 }
