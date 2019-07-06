@@ -7,10 +7,8 @@ import Stopwatch from "./components/Stopwatch";
 import Countdown from "./components/Countdown";
 
 //stylings
-import './App.css';
-
-// import bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/App.css'
+import './styles/Navbar.css'
 
 class App extends Component {
   state = {
@@ -19,21 +17,14 @@ class App extends Component {
 
   render () {
     return (
-      <body>
-        <div className="App">
-          <div class="container-fluid" id="container-override">
-            <Navbar />
-            <Stopwatch />
-            <br></br>
-            <Countdown />
-          </div>
+      <div className="App">
+        <div class="container-fluid" id="container-override">
+          <Navbar />
+          <Stopwatch />
+          <br></br>
+          <Countdown />
         </div>
-
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/popper.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-      </body>
-
+      </div>
     );
   }
 }
