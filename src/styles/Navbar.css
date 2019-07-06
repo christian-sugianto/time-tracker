@@ -1,3 +1,4 @@
+/* navbar styling */
 .navbar-color {
     background-color: #634832;
 }
@@ -35,4 +36,36 @@
     font-weight: bold;
     -webkit-text-stroke: 1.5px black;
     font-size: 30px;
+}
+
+/* modal styling */
+#modal-label-signup {
+    padding-left: 150px;
+    color:white;
+    font-weight: 3px;
+}
+
+#modal-label-login {
+    padding-left: 205px;
+    color:white;
+    font-weight: 3px;
+}
+
+#modal-header-override {
+    background-color: #634832;
+}
+
+#inputLabel {
+    font-weight: 100px;
+    font-size:20px;
+}
+
+#btn-override {
+    width: 100%;
+    background-color: grey;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
 }
