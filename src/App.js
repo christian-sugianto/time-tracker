@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navbar from './components/layout/Navbar';
 
-// stylings
-import './styles/App.css';
+// import components
+import Navbar from './components/Navbar';
+import Stopwatch from "./components/Stopwatch";
+import Countdown from "./components/Countdown";
+
+//stylings
+import './App.css';
 
 // import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,6 +23,9 @@ class App extends Component {
         <div className="App">
           <div class="container-fluid" id="container-override">
             <Navbar />
+            <Stopwatch />
+            <br></br>
+            <Countdown />
           </div>
         </div>
 
@@ -26,6 +33,7 @@ class App extends Component {
         <script src="/js/popper.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
       </body>
+
     );
   }
 }
