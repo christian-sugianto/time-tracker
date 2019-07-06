@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navbar from './components/layout/Navbar';
+
+// import components
+import Navbar from './components/Navbar';
+import Stopwatch from "./components/Stopwatch";
+import Countdown from "./components/Countdown";
+
+//stylings
 import './App.css';
 
 class App extends Component {
@@ -11,7 +17,9 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <stopwatch />
+        <Stopwatch />
+        <br></br>
+        <Countdown />
       </div>
     );
   }
