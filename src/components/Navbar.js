@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ClockPicture from '../../assets/clock.png'
+import ClockPicture from '../assets/clock.png'
 
 function Navbar() {
-
-    
     return (
         <div class="container-fluid" id = "container-override">
             <nav class="navbar navbar-expand-lg navbar-dark navbar-color">
