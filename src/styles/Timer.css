@@ -64,11 +64,26 @@
 }
 
 .add-description {
+    text-align: center;
+    padding-top: 1000px;
     width: 350px;
-    padding: 12px 20px;
+    height: 70px;
+    padding: 6px 12px;
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    background-color: #3CBC8D;
+    background-color: #967259;
     color: white;
+    font-size: 25px;
+}
+
+.add-description::placeholder {
+    color: #ACACAC;
+    font-size: 25px;
+}
+
+.add-description-text {
+    margin-left: 125px;
+    color: white;
+    text-align: left;
 }

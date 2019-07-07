@@ -35,8 +35,12 @@ class Timer extends Component {
                 <div id="Timer-button-divider"></div>
                 <button className="Timer-button" onClick={this.resetTimer}>Reset</button>
             </div>
-
+            <br></br>
             <input type="string" className="add-description" placeholder="Add Description (Optional)"/>
+            <p className="add-description-text">
+                Every time timer pauses or resets, task and <br/> 
+                time stamp will be recorded in History 
+            </p>
         </div>
         );
     }
