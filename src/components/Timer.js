@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Stopwatch extends Component {
+class Timer extends Component {
     state = {
         timerOn: false,
         timerStart: 0,
@@ -9,22 +9,26 @@ class Stopwatch extends Component {
 
     render() {
         const { timerTime } = this.state;
-        let centiseconds = ("0" + (Math.floor(timerTime / 10) % 100)).slice(-2);
         let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
         let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
         let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
 
         return (
-        <div className="Stopwatch">
-            <div className="Stopwatch-header">Stopwatch</div>
-            <div className="Stopwatch-display">
-                {hours} : {minutes} : {seconds} : {centiseconds}
+        <div className="container" id="timer">
+            <div className="Timer-header">
+                <button className="Timer-type">Stopwatch</button>
+                <button className="Timer-type">Countdown</button>
+            </div>
+
+            <div className="Timer-display">
+                {hours} : {minutes} : {seconds}
             </div>
             
-            <button onClick={this.stopTimer}>Pause</button>
-            <button onClick={this.startTimer}>Play</button>
-            <button onClick={this.resetTimer}>Reset</button>
-            
+            <div className="Timer-buttons-container">
+                <button className="Timer-button" onClick={this.stopTimer}>Pause</button>
+                <button className="Timer-button" onClick={this.startTimer}>Play</button>
+                <button className="Timer-button" onClick={this.resetTimer}>Reset</button>
+            </div>
         </div>
         );
     }
@@ -58,9 +62,8 @@ class Stopwatch extends Component {
             timerStart: 0,
             timerTime: 0
         })
+        clearInterval(this.timer);
     }
-    
-    
 }
 
-export default Stopwatch;
+export default Timer;
