@@ -17,6 +17,7 @@ class Timer extends Component {
         <div className="container" id="timer">
             <div className="Timer-header">
                 <button className="Timer-type">Stopwatch</button>
+                <div id="Timer-type-divider"></div>
                 <button className="Timer-type">Countdown</button>
             </div>
 
@@ -26,7 +27,9 @@ class Timer extends Component {
             
             <div className="Timer-buttons-container">
                 <button className="Timer-button" onClick={this.stopTimer}>Pause</button>
+                <div id="Timer-button-divider"></div>
                 <button className="Timer-button" onClick={this.startTimer}>Play</button>
+                <div id="Timer-button-divider"></div>
                 <button className="Timer-button" onClick={this.resetTimer}>Reset</button>
             </div>
         </div>
