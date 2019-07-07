@@ -1,7 +1,7 @@
 #timer {
     text-align: center;
     box-sizing: content-box;  
-    width: auto;
+    width: 600px;
     height: auto;
     padding: 30px;  
     background-color: #634832;
@@ -9,7 +9,7 @@
 
 .Timer-display {
     color: white;
-    font-size: 150px;
+    font-size: 120px;
 }
 
 #Timer-type-divider {
@@ -46,14 +46,29 @@
     background-color: white;
     border: 2px solid #696969;
     padding: 15px 32px;
-    width: 175px;
+    width: 150px;
 
     color: #696969;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 32px;
+    font-size: 28px;
     margin: 4px 2px;
     cursor: pointer;
     font-weight: bold;
+}
+
+.Timer-button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.add-description {
+    width: 350px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #3CBC8D;
+    color: white;
 }

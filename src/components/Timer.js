@@ -14,12 +14,15 @@ class Timer extends Component {
         let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
 
         return (
-        <div className="container" id="timer">
-            <div className="Timer-header">
-                <button className="Timer-type">Stopwatch</button>
-                <div id="Timer-type-divider"></div>
-                <button className="Timer-type">Countdown</button>
+        <div className="container-fluid" id="timer">
+            <div classname="row">
+                <div className="Timer-header col-lg-12">
+                    <button className="Timer-type">Stopwatch</button>
+                    <div id="Timer-type-divider"></div>
+                    <button className="Timer-type">Countdown</button>
+                </div>
             </div>
+            
 
             <div className="Timer-display">
                 {hours} : {minutes} : {seconds}
@@ -32,6 +35,8 @@ class Timer extends Component {
                 <div id="Timer-button-divider"></div>
                 <button className="Timer-button" onClick={this.resetTimer}>Reset</button>
             </div>
+
+            <input type="string" className="add-description" placeholder="Add Description (Optional)"/>
         </div>
         );
     }

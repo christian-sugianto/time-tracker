@@ -24,12 +24,12 @@ class App extends Component {
               <Navbar />
             </div>
           </div>
-          <div class="row row-top-buffer">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4">
-              <Timer />
-            </div>
-            <div class="col-lg-4"></div>
+          <div class="row row-timer d-flex justify-content-center">
+            <Timer />
+          </div>
+
+          <div class="row">
+            
           </div>
         </div>
       </div>
