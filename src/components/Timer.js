@@ -4,7 +4,8 @@ class Timer extends Component {
     state = {
         timerOn: false,
         timerStart: 0,
-        timerTime: 0
+        timerTime: 0,
+        isCountdown: false,
     };
 
     render() {
@@ -18,8 +19,7 @@ class Timer extends Component {
             <div classname="row">
                 <div className="Timer-header col-lg-12">
                     <button className="Timer-type">Stopwatch</button>
-                    <div id="Timer-type-divider"></div>
-                    <button className="Timer-type">Countdown</button>
+                    <button className="Timer-type" onClick={this.changeToCountdown}>Countdown</button>
                 </div>
             </div>
             
@@ -43,6 +43,12 @@ class Timer extends Component {
             </p>
         </div>
         );
+    }
+
+    changeToCountdown = () => {
+        this.setState( {
+            isCountdown: true
+        })
     }
     
     startTimer = () => {
