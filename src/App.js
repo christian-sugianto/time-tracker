@@ -27,7 +27,6 @@ class App extends Component {
           <div class="row row-timer d-flex justify-content-center">
             <Timer />
           </div>
-
           <div class="row">
             
           </div>

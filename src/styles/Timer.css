@@ -5,6 +5,7 @@
     height: auto;
     padding: 20px;
     background-color: #634832;
+    margin-top: 150px;
 }
 
 .Timer-display {
@@ -15,7 +16,7 @@
 .Timer-type {
     background-color: #634832;
     height: 70px;
-    width: 285px;
+    width: 280px;
     border-style: none none solid none;
     display: inline-block;
     

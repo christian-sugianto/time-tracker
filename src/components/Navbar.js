@@ -6,8 +6,8 @@ import SignupPicture from '../assets/signup.png'
 
 function Navbar() {
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-color">
-            <a class="navbar-brand" href="#">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-override">
+            <a class="navbar-brand" id="navbar-brand-override" href="#">
                 FocusTimer
                 <img class="img-fluid" id="img-override" src= { ClockPicture } alt="clock"></img>
             </a>

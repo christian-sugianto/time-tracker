@@ -1,12 +1,15 @@
 /* navbar styling */
-.navbar-color {
+.navbar-override {
     background-color: #634832;
+    height: 75px;
+    font-size: 20px;
 }
 
-#nav-link-override {
-    color: white;
-    font-size: 20px;
-    padding-left: 15px;
+#navbar-brand-override {
+    font-size:30px;
+    display:inline-block;
+    -webkit-text-stroke: 2px black;
+    font-weight: bold;
 }
 
 #right-navbar-nav-override {
@@ -16,8 +19,8 @@
 #img-override {
     height: auto; 
     width: auto; 
-    max-width: 30px; 
-    max-height: 30px;
+    max-width: 45px; 
+    max-height: 45px;
 }
 
 #small-img-override {
@@ -26,12 +29,6 @@
     max-width: 20px;
     max-height: 20px;
     padding-right: 3px;
-}
-
-#navbar-brand-override{
-    font-weight: bold;
-    -webkit-text-stroke: 1.5px black;
-    font-size: 30px;
 }
 
 /* modal styling */
