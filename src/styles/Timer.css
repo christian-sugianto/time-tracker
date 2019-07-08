@@ -1,16 +1,16 @@
 #timer {
     text-align: center;
     box-sizing: content-box;  
-    width: 600px;
+    width: auto;
     height: auto;
-    padding: 20px;
+    padding: 20px 0px;
     background-color: #634832;
     margin-top: 150px;
 }
 
 .Timer-display {
     color: white;
-    font-size: 115px;
+    font-size: 105px;
 }
 
 .Timer-type {
@@ -74,7 +74,7 @@
 }
 
 .add-description-text {
-    margin-left: 125px;
+    margin-left: 100px;
     color: white;
     text-align: left;
 }

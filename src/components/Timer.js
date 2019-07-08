@@ -32,8 +32,8 @@ class Timer extends Component {
                 <br></br>
                 <input type="string" className="add-description" placeholder="Add Description (Optional)"/>
                 <p className="add-description-text">
-                    Everytime timer pauses or resets, task and<br/> 
-                    time stamp will be recorded in History 
+                    Everytime timer pauses, task and time<br/> 
+                    stamp will be recorded in History 
                 </p>
             </div>
         );
