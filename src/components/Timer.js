@@ -11,7 +11,7 @@ class Timer extends Component {
         return (
             <div className="container-fluid" id="timer">
                 <div classname="row">
-                    <div className="Timer-header col-lg-12">
+                    <div className="Timer-header d-flex flex-row justify-content-center">
                         {this.state.isCountdown === false && 
                             (<button className="Timer-type" style={activeTypeStyle} onClick={this.changeToStopwatch}>Stopwatch</button>)}
 
@@ -29,7 +29,6 @@ class Timer extends Component {
                 {this.state.isCountdown === false && (<Stopwatch />)}
                 {this.state.isCountdown === true && (<Countdown />)}
 
-                <br></br>
                 <input type="string" className="add-description" placeholder="Add Description (Optional)"/>
                 <p className="add-description-text">
                     Everytime timer pauses, task and time<br/> 

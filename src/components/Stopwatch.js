@@ -15,8 +15,18 @@ class Stopwatch extends Component {
 
         return (
             <div className="Stopwatch">
-                <div className="Timer-display">
-                    {hours} : {minutes} : {seconds}
+                <div className="Timer-display d-flex flex-row justify-content-center">
+                    <div className="time p-2">
+                        {hours}
+                    </div>
+                    <div className="p-2">:</div>
+                    <div className="time p-2">
+                        {minutes}
+                    </div>
+                    <div className="p-2">:</div>
+                    <div className="time p-2">
+                        {seconds}
+                    </div>
                 </div>
                 
                 <div className="Timer-buttons-container">
@@ -26,9 +36,9 @@ class Stopwatch extends Component {
                         (<button className="Timer-button" onClick={this.stopTimer}>Pause</button>)}
                     {this.state.timerOn === false && this.state.timerTime > 0 && 
                         (<button className="Timer-button" onClick={this.startTimer}>Resume</button>)}
-                    {this.state.timerOn === false && this.state.timerTime > 0 && 
+                    {this.state.timerTime > 0 && 
                         (<div id="Timer-button-divider"></div>)}
-                    {this.state.timerOn === false && this.state.timerTime > 0 && 
+                    {this.state.timerTime > 0 && 
                         (<button className="Timer-button" onClick={this.resetTimer}>Reset</button>)}
                 </div>
             </div>
@@ -64,6 +74,7 @@ class Stopwatch extends Component {
             timerStart: 0,
             timerTime: 0
         })
+        clearInterval(this.timer);
     }
 }
 

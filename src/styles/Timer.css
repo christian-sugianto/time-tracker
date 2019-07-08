@@ -11,6 +11,9 @@
 .Timer-display {
     color: white;
     font-size: 105px;
+    border-bottom: 1px solid white;
+    line-height: 150px;
+    margin-bottom: 20px;
 }
 
 .Timer-type {
@@ -18,6 +21,7 @@
     height: 70px;
     width: 280px;
     border-style: none none solid none;
+    border-width: 3px;
     display: inline-block;
     
     color: white;
@@ -56,11 +60,10 @@
 
 .add-description {
     text-align: center;
-    padding-top: 1000px;
-    width: 350px;
+    width: 355px;
     height: 70px;
     padding: 6px 12px;
-    margin: 8px 0;
+    margin-top: 20px;
     box-sizing: border-box;
     border: none;
     background-color: #967259;
@@ -74,7 +77,15 @@
 }
 
 .add-description-text {
-    margin-left: 100px;
+    margin-left: 105px;
     color: white;
     text-align: left;
 }
+
+.time {
+    width: 150px;
+}
+
+/* stopwatch styles */
+
+/* countdown styles */
