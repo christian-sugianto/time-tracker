@@ -3,13 +3,13 @@
     box-sizing: content-box;  
     width: 600px;
     height: auto;
-    padding: 20px;  
+    padding: 20px;
     background-color: #634832;
 }
 
 .Timer-display {
     color: white;
-    font-size: 120px;
+    font-size: 115px;
 }
 
 .Timer-type {
@@ -32,11 +32,10 @@
     display:inline-block;
 }
 
-
 .Timer-button {
     background-color: white;
     border: 2px solid #696969;
-    padding: 15px 32px;
+    padding: 15px;
     width: 150px;
 
     color: #696969;
