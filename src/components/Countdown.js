@@ -31,7 +31,7 @@ class Countdown extends Component {
                 </div>
                 
                 <div className="Timer-buttons-container">
-                    {this.state.timerOn === false && this.state.timerTime === 0 && (
+                    {this.state.timerOn === false && this.state.timerStart === 0 && (
                         <div className="Timer-display-input">
                             <div className="Timer-input d-flex flex-row justify-content-center">
                                 <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 0)}> 0 </button>
@@ -43,7 +43,6 @@ class Countdown extends Component {
                                 {this.state.timerOn === false && (this.state.timerStart === 0 || this.state.timerTime === this.state.timerStart) && (
                                     <button className="Timer-button timer-input-button-2 p-2" onClick={this.startTimer}> Set </button>
                                 )}
-                                
                             </div>
                             
                             <div className="Timer-input d-flex flex-row justify-content-center">
@@ -52,7 +51,7 @@ class Countdown extends Component {
                                 <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 7)}> 7 </button>
                                 <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 8)}> 8 </button>
                                 <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 9)}> 9 </button>
-                                <button className="Timer-button timer-input-button-2 p-2"> Clear </button>
+                                <button className="Timer-button timer-input-button-2 p-2" onClick={this.clearNumbers}> Clear </button>
                             </div>
                         </div>
                     )}
@@ -85,49 +84,36 @@ class Countdown extends Component {
         }
         if (this.state.numberEntered === 2) {
             this.setState({
-                timerTime: this.state.timerTime + number * 1000,
+                timerTime: this.state.timerTime + number * 60000,
                 numberEntered: this.state.numberEntered + 1
             })
         }
         if (this.state.numberEntered === 3) {
             this.setState({
-                timerTime: this.state.timerTime + number * 1000,
+                timerTime: this.state.timerTime + number * 600000,
                 numberEntered: this.state.numberEntered + 1
             })
         }
         if (this.state.numberEntered === 4) {
             this.setState({
-                timerTime: this.state.timerTime + number * 1000,
+                timerTime: this.state.timerTime + number * 3600000,
                 numberEntered: this.state.numberEntered + 1
             })
         }
         if (this.state.numberEntered === 5) {
             this.setState({
-                timerTime: this.state.timerTime + number * 1000,
+                timerTime: this.state.timerTime + number * 36000000,
                 numberEntered: this.state.numberEntered + 1
             })
         }
     }
 
-    // adjustTimer = input => {
-    //     const { timerTime, timerOn } = this.state;
-    //     const max = 216000000;
-    //     if (!timerOn) {
-    //       if (input === "incHours" && timerTime + 3600000 < max) {
-    //         this.setState({ timerTime: timerTime + 3600000 });
-    //       } else if (input === "decHours" && timerTime - 3600000 >= 0) {
-    //         this.setState({ timerTime: timerTime - 3600000 });
-    //       } else if (input === "incMinutes" && timerTime + 60000 < max) {
-    //         this.setState({ timerTime: timerTime + 60000 });
-    //       } else if (input === "decMinutes" && timerTime - 60000 >= 0) {
-    //         this.setState({ timerTime: timerTime - 60000 });
-    //       } else if (input === "incSeconds" && timerTime + 1000 < max) {
-    //         this.setState({ timerTime: timerTime + 1000 });
-    //       } else if (input === "decSeconds" && timerTime - 1000 >= 0) {
-    //         this.setState({ timerTime: timerTime - 1000 });
-    //       }
-    //     }
-    //   };
+    clearNumbers = () => {
+        this.setState({
+            timerTime: 0,
+            numberEntered: 0
+        })
+    }
     
     startTimer = () => {
         this.setState({
@@ -158,8 +144,12 @@ class Countdown extends Component {
     resetTimer = () => {
         if (this.state.timerOn === false) {
             this.setState({
-                timerTime: this.state.timerStart
-            });
+                timerOn: false,
+                timerStart: 0,
+                timerTime: 0,
+                numberEntered: 0
+            })
+            clearInterval(this.timer);
         }
     };
 }
