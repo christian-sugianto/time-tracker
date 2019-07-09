@@ -10,20 +10,18 @@ class Timer extends Component {
     render() {
         return (
             <div className="container-fluid" id="timer">
-                <div classname="row">
-                    <div className="Timer-header d-flex flex-row justify-content-center">
-                        {this.state.isCountdown === false && 
-                            (<button className="Timer-type" style={activeTypeStyle} onClick={this.changeToStopwatch}>Stopwatch</button>)}
+                <div className="Timer-header d-flex flex-row justify-content-center">
+                    {this.state.isCountdown === false && 
+                        (<button className="Timer-type" style={activeTypeStyle} onClick={this.changeToStopwatch}>Stopwatch</button>)}
 
-                        {this.state.isCountdown === false && 
-                            (<button className="Timer-type" onClick={this.changeToCountdown}>Countdown</button>)}
+                    {this.state.isCountdown === false && 
+                        (<button className="Timer-type" onClick={this.changeToCountdown}>Countdown</button>)}
 
-                        {this.state.isCountdown === true && 
-                            (<button className="Timer-type" onClick={this.changeToStopwatch}>Stopwatch</button>)}
+                    {this.state.isCountdown === true && 
+                        (<button className="Timer-type" onClick={this.changeToStopwatch}>Stopwatch</button>)}
 
-                        {this.state.isCountdown === true && 
-                            (<button className="Timer-type" style={activeTypeStyle} onClick={this.changeToCountdown}>Countdown</button>)}
-                    </div>
+                    {this.state.isCountdown === true && 
+                        (<button className="Timer-type" style={activeTypeStyle} onClick={this.changeToCountdown}>Countdown</button>)}
                 </div>
                 
                 {this.state.isCountdown === false && (<Stopwatch />)}

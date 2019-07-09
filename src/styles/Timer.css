@@ -1,7 +1,7 @@
 #timer {
     text-align: center;
     box-sizing: content-box;  
-    width: auto;
+    width: 600px;
     height: auto;
     padding: 20px 0px;
     background-color: #634832;
@@ -14,12 +14,13 @@
     border-bottom: 1px solid white;
     line-height: 150px;
     margin-bottom: 20px;
+    background-color: #88664d;
 }
 
 .Timer-type {
     background-color: #634832;
     height: 70px;
-    width: 280px;
+    width: 300px;
     border-style: none none solid none;
     border-width: 3px;
     display: inline-block;
@@ -77,13 +78,21 @@
 }
 
 .add-description-text {
-    margin-left: 105px;
+    margin-left: 123px;
     color: white;
     text-align: left;
 }
 
 .time {
     width: 150px;
+}
+
+.timer-input-button {
+    width: 80px;
+}
+
+.timer-input-button-2 {
+    width: 140px;
 }
 
 /* stopwatch styles */
