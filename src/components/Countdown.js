@@ -121,8 +121,7 @@ class Countdown extends Component {
 
         return (
             <div className="Countdown">
-
-                {(this.state.timerOn === false && this.state.timerTime === 0) && (
+                {(this.state.timerOn === false && this.state.timerStart === 0) && (
                     <div className="Timer-display d-flex flex-row justify-content-center">
                         <div className="time p-2" id="hour">
                             {this.state.rawNumbersEntered[5]}
@@ -141,7 +140,7 @@ class Countdown extends Component {
                     </div>
                 )}
 
-                {!(this.state.timerOn === false && this.state.timerTime === 0) && (
+                {(this.state.timerOn === true || (this.state.timerOn === false && this.state.timerStart !== 0)) && (
                     <div className="Timer-display d-flex flex-row justify-content-center">
                         <div className="time p-2" id="hour">
                             {hours}
