@@ -15,6 +15,8 @@ class Stopwatch extends Component {
 
         return (
             <div className="Stopwatch">
+                {this.pressButton}
+
                 <div className="Timer-display d-flex flex-row justify-content-center">
                     <div className="time p-2">
                         {hours}
@@ -44,9 +46,13 @@ class Stopwatch extends Component {
             </div>
         );
     }
+
+    pressButton = () => {
+        
+    }
     
     startTimer = () => {
-        if (this.state.timerOn == false) {
+        if (this.state.timerOn === false) {
             this.setState({
                 timerOn: true,
                 timerTime: this.state.timerTime,

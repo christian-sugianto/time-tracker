@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Stopwatch from "./Stopwatch";
 import Countdown from "./Countdown";
 
-class Timer extends Component {
+class TimerBox extends Component {
     state = {
         isCountdown: false,
     };
@@ -29,8 +29,8 @@ class Timer extends Component {
 
                 <input type="string" className="add-description" placeholder="Add Description (Optional)"/>
                 <p className="add-description-text">
-                    Everytime timer pauses, task and time<br/> 
-                    stamp will be recorded in History 
+                    Everytime timer ends, task and time stamp will <br />
+                    be recorded in History 
                 </p>
             </div>
         );
@@ -56,4 +56,4 @@ var activeTypeStyle = {
     color: "#FF994E"
 }
 
-export default Timer;
+export default TimerBox;

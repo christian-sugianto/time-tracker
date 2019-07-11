@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // import components
 import Navbar from './components/Navbar';
-import Timer from "./components/Timer";
+import TimerBox from "./components/TimerBox";
 
 //stylings
 import './styles/App.css'
 import './styles/Navbar.css'
-import './styles/Timer.css'
+import './styles/TimerBox.css'
 
 class App extends Component {
   state = {
@@ -25,7 +25,7 @@ class App extends Component {
             </div>
           </div>
           <div class="row row-timer d-flex justify-content-center">
-            <Timer />
+            <TimerBox />
           </div>
           <div class="row">
             
