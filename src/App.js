@@ -29,22 +29,17 @@ class App extends Component {
             </div>
           </div>
 
-          <div className="row row-timer d-flex justify-content-center">
-            <div className="p2">
+          <div className ="row">
+            <div className="col-lg-4">
               <Helper />
             </div>
 
-            <div className="p2">
-              <Timer/>
+            <div className="col-lg-4">
+              <Timer />
             </div>
 
-            <div className="p2">
-              <div className="d-flex">
-                Control Music
-              </div>
-              <div className="d-flex">
-                Music Library
-              </div>
+            <div className="col-lg-4">
+              <Music />
             </div>            
           </div>
         </div>
