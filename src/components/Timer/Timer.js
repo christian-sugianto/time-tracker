@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import Stopwatch from "./Stopwatch";
 import Countdown from "./Countdown";
 
-class TimerBox extends Component {
+class Timer extends Component {
     state = {
         isCountdown: false,
     };
 
     render() {
         return (
-            <div className="container-fluid" id="timer">
+            <div className="timer">
                 <div className="timer-header d-flex flex-row justify-content-center">
                     {this.state.isCountdown === false && 
                         (<button className="timer-type" style={activeTypeStyle} onClick={this.changeToStopwatch}>Stopwatch</button>)}
@@ -50,4 +50,4 @@ var activeTypeStyle = {
     color: "#FF994E"
 }
 
-export default TimerBox;
+export default Timer;

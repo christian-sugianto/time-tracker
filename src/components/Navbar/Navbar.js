@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ClockPicture from '../assets/clock.png'
-import LoginPicture from '../assets/login.png'
-import SignupPicture from '../assets/signup.png'
+import ClockPicture from '../../assets/clock.png'
+import LoginPicture from '../../assets/login.png'
+import SignupPicture from '../../assets/signup.png'
 
 function Navbar() {
     return (
