@@ -18,6 +18,15 @@ class Stopwatch extends Component {
                 this.stopTimer();
             }
         }
+        else if(e.altKey && e.target == document.body && this.state.timerTime > 0) {
+            e.preventDefault();
+            if (e.keyCode == 82) {
+                this.resetTimer();
+            }
+            else if (e.keyCode == 69) {
+                this.resetTimer();
+            }
+        }
     }
 
     componentDidMount(){

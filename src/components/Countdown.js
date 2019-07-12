@@ -10,6 +10,34 @@ class Countdown extends Component {
         lengthOfNumbers: 0
     };
 
+    pressKey = (e) => {
+        if(e.keyCode == 32 && e.target == document.body){
+            e.preventDefault();
+            if (this.state.timerOn === true && this.state.timerTime >= 1000) {
+                this.stopTimer();
+            }
+            else if (this.state.timerOn === false && (this.state.timerStart !== 0 && this.state.timerStart !== this.state.timerTime && this.state.timerTime !== 0)) {
+                this.startTimer();
+            }
+        }
+        else if(e.altKey && e.target == document.body && (this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0)) {
+            e.preventDefault();
+            if (e.keyCode == 82) {
+                this.resetTimer();
+            }
+            else if (e.keyCode == 69) {
+                this.resetTimer();
+            }
+        }
+    }
+
+    componentDidMount(){
+        document.addEventListener("keydown", this.pressKey, false);
+      }
+    componentWillUnmount(){
+        document.removeEventListener("keydown", this.pressKey, false);
+    }
+
     enterNumber = (number) => {
         if (this.state.lengthOfNumbers === 0) {
             this.setState({
