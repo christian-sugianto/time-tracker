@@ -7,6 +7,23 @@ class Timer extends Component {
         isCountdown: false,
     };
 
+    pressKey = (e) => {
+        if(e.altKey && e.target == document.body) {
+            e.preventDefault();
+
+            if (e.keyCode == 83) {
+                this.changeType();
+            }
+        }
+    }
+
+    componentDidMount(){
+        document.addEventListener("keydown", this.pressKey, false);
+      }
+    componentWillUnmount(){
+        document.removeEventListener("keydown", this.pressKey, false);
+    }
+
     render() {
         return (
             <div className="timer">
@@ -15,10 +32,10 @@ class Timer extends Component {
                         (<button className="timer-type" style={activeTypeStyle} onClick={this.changeToStopwatch}>Stopwatch</button>)}
 
                     {this.state.isCountdown === false && 
-                        (<button className="timer-type" onClick={this.changeToCountdown}>Countdown</button>)}
+                        (<button className="timer-type" onClick={this.changeType}>Countdown</button>)}
 
                     {this.state.isCountdown === true && 
-                        (<button className="timer-type" onClick={this.changeToStopwatch}>Stopwatch</button>)}
+                        (<button className="timer-type" onClick={this.changeType}>Stopwatch</button>)}
 
                     {this.state.isCountdown === true && 
                         (<button className="timer-type" style={activeTypeStyle} onClick={this.changeToCountdown}>Countdown</button>)}
@@ -31,16 +48,9 @@ class Timer extends Component {
     }
 
     /* stopWatch */
-    changeToStopwatch = () => {
+    changeType = () => {
         this.setState( {
-            isCountdown: false
-        })
-    }
-
-    /* countdown */
-    changeToCountdown = () => {
-        this.setState( {
-            isCountdown: true
+            isCountdown: !(this.state.isCountdown)
         })
     }
 }
