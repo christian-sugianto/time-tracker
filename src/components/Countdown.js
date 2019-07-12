@@ -76,11 +76,21 @@ class Countdown extends Component {
     }
     
     startTimer = () => {
-        this.setState({
-            timerOn: true,
-            timerTime: this.state.timerTime,
-            timerStart: this.state.timerTime
-        });
+        if (this.state.timerTime > 360000000) {
+            this.setState({
+                timerOn: true,
+                timerTime: 3600000000,
+                timerStart: 3600000000
+            })
+        }
+        else {
+            this.setState({
+                timerOn: true,
+                timerTime: this.state.timerTime,
+                timerStart: this.state.timerTime
+            });
+        }
+        
         this.timer = setInterval(() => {
             const newTime = this.state.timerTime - 10;
             if (newTime >= 0) {
@@ -200,6 +210,10 @@ class Countdown extends Component {
 
                     {this.state.timerOn === true && this.state.timerTime >= 1000 && 
                         (<button className="Timer-button" onClick={this.stopTimer}>Pause</button>)}
+                    {(this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0) && 
+                        (<button className="Timer-button" onClick={this.resetTimer}>End</button>)}
+                    {this.state.timerTime > 0 && this.state.timerOn === false && 
+                        (<div id="Timer-button-divider"></div>)}
                     {this.state.timerOn === false && (this.state.timerStart !== 0 && this.state.timerStart !== this.state.timerTime && this.state.timerTime !== 0) && 
                         (<button className="Timer-button" onClick={this.startTimer}>Resume</button>)}
                     {this.state.timerTime > 0 && this.state.timerOn === false && 
