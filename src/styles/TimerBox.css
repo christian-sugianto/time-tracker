@@ -2,13 +2,13 @@
     text-align: center;
     box-sizing: content-box;  
     width: 600px;
-    height: auto;
-    padding: 20px 0px;
+    height: 500px;;
+    padding: 30px 0px;
     background-color: #634832;
     margin-top: 150px;
 }
 
-.Timer-display {
+.timer-display {
     color: white;
     font-size: 105px;
     border-bottom: 1px solid white;
@@ -17,7 +17,7 @@
     background-color: #88664d;
 }
 
-.Timer-type {
+.timer-type {
     background-color: #634832;
     height: 70px;
     width: 300px;
@@ -32,13 +32,13 @@
     cursor: pointer;
 }
 
-#Timer-button-divider {
+#timer-button-divider {
     width: 20px;
     height:auto;
     display:inline-block;
 }
 
-.Timer-button {
+.timer-button {
     background-color: white;
     border: 2px solid #696969;
     padding: 15px;
@@ -54,7 +54,7 @@
     font-weight: bold;
 }
 
-.Timer-button:active {
+.timer-button:active {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
@@ -78,7 +78,7 @@
 }
 
 .add-description-text {
-    margin-left: 123px;
+    margin-right: 8px;
     color: white;
     text-align: left;
 }
@@ -88,11 +88,27 @@
 }
 
 .timer-input-button {
-    width: 80px;
+    width: 70px;
+    height: 42px;
+    background-color: white;
+    border: 2px solid #696969;
+    
+    font-size: 18px;
+    color: #696969;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.timer-input-button-2 {
-    width: 140px;
+.big-timer-input-button {
+    width: 160px;
+}
+
+.timer-input-button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 /* stopwatch styles */

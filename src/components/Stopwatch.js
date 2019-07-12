@@ -76,8 +76,7 @@ class Stopwatch extends Component {
 
         return (
             <div className="Stopwatch">
-
-                <div className="Timer-display d-flex flex-row justify-content-center">
+                <div className="timer-display d-flex flex-row justify-content-center">
                     <div className="time p-2">
                         {hours}
                     </div>
@@ -91,21 +90,34 @@ class Stopwatch extends Component {
                     </div>
                 </div>
                 
-                <div className="Timer-buttons-container">
+                <div className="timer-buttons d-flex flex-row justify-content-center">
                     {this.state.timerOn === false && this.state.timerTime === 0 && 
-                        (<button className="Timer-button" onClick={this.startTimer}>Start</button>)}
+                        (<button className="timer-button" onClick={this.startTimer}>Start</button>)}
                     {this.state.timerTime > 0 && 
-                        (<button className="Timer-button" onClick={this.resetTimer}>End</button>)}
+                        (<button className="timer-button" onClick={this.resetTimer}>End</button>)}
                     {this.state.timerTime > 0 && 
-                        (<div id="Timer-button-divider"></div>)}
+                        (<div id="timer-button-divider"></div>)}
                     {this.state.timerOn === true && 
-                        (<button className="Timer-button" onClick={this.stopTimer}>Pause</button>)}
+                        (<button className="timer-button" onClick={this.stopTimer}>Pause</button>)}
                     {this.state.timerOn === false && this.state.timerTime > 0 && 
-                        (<button className="Timer-button" onClick={this.startTimer}>Resume</button>)}
+                        (<button className="timer-button" onClick={this.startTimer}>Resume</button>)}
                     {this.state.timerTime > 0 && 
-                        (<div id="Timer-button-divider"></div>)}
+                        (<div id="timer-button-divider"></div>)}
                     {this.state.timerTime > 0 && 
-                        (<button className="Timer-button" onClick={this.resetTimer}>Reset</button>)}
+                        (<button className="timer-button" onClick={this.resetTimer}>Reset</button>)}
+                </div>
+                    
+                <div className="timer-description">
+                    <div className="d-flex flex-row justify-content-center">
+                        <input type="string" className="add-description" placeholder="Add Description (Optional)"/>
+                    </div>
+                    
+                    <div className="d-flex flex-row justify-content-center">
+                        <p className="add-description-text">
+                            Everytime timer ends, task description and time <br />
+                            stamp will be recorded in History 
+                        </p>
+                    </div>
                 </div>
             </div>
         );

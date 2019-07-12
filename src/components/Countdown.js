@@ -160,7 +160,7 @@ class Countdown extends Component {
         return (
             <div className="Countdown">
                 {(this.state.timerOn === false && this.state.timerStart === 0) && (
-                    <div className="Timer-display d-flex flex-row justify-content-center">
+                    <div className="timer-display d-flex flex-row justify-content-center">
                         <div className="time p-2" id="hour">
                             {this.state.rawNumbersEntered[5]}
                             {this.state.rawNumbersEntered[4]}
@@ -179,7 +179,7 @@ class Countdown extends Component {
                 )}
 
                 {(this.state.timerOn === true || (this.state.timerOn === false && this.state.timerStart !== 0)) && (
-                    <div className="Timer-display d-flex flex-row justify-content-center">
+                    <div className="timer-display d-flex flex-row justify-content-center">
                         <div className="time p-2" id="hour">
                             {hours}
                         </div>
@@ -194,61 +194,72 @@ class Countdown extends Component {
                     </div>
                 )}
                 
-                
-                {this.state.timerOn === false && this.state.timerStart === 0 && (
-                    <div className="Timer-buttons-container">
-                        <div className="Timer-display-input">
-                            <div className="Timer-input d-flex flex-row justify-content-center">
-                                <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 0)}> 0 </button>
-                                <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 1)}> 1 </button>
-                                <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 2)}> 2 </button>
-                                <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 3)}> 3 </button>
-                                <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 4)}> 4 </button>
-
+                <div className="timer-buttons">
+                    {this.state.timerOn === false && this.state.timerStart === 0 && (
+                        <div className="timer-input-buttons">
+                            <div className="d-flex flex-row justify-content-center">
+                                <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 0)}> 0 </button>
+                                <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 1)}> 1 </button>
+                                <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 2)}> 2 </button>
+                                <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 3)}> 3 </button>
+                                <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 4)}> 4 </button>
+                                
                                 {this.state.timerOn === false && (this.state.timerStart === 0 || this.state.timerTime === this.state.timerStart) && (
-                                    <button className="Timer-button timer-input-button-2 p-2" onClick={this.startTimer}> Set </button>
+                                    <button className="timer-input-button big-timer-input-button p-2" onClick={this.startTimer}> Set </button>
                                 )}
                             </div>
                             
-                            <div className="Timer-input d-flex flex-row justify-content-center">
-                                <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 5)}> 5 </button>
+                            <div className="d-flex flex-row justify-content-center">
+                                <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 5)}> 5 </button>
                                 {(this.state.numberEntered === 1 || this.state.numberEntered === 3) && (
                                     <div className="disabled-timer-buttons">
-                                        <button className="Timer-button timer-input-button p-2 disabled" onClick={this.enterNumber.bind(this, 6)} disabled> 6 </button>
-                                        <button className="Timer-button timer-input-button p-2 disabled" onClick={this.enterNumber.bind(this, 7)} disabled> 7 </button>
-                                        <button className="Timer-button timer-input-button p-2 disabled" onClick={this.enterNumber.bind(this, 8)} disabled> 8 </button>
-                                        <button className="Timer-button timer-input-button p-2 disabled" onClick={this.enterNumber.bind(this, 9)} disabled> 9 </button>
+                                        <button className="timer-input-button p-2 disabled" onClick={this.enterNumber.bind(this, 6)} disabled> 6 </button>
+                                        <button className="timer-input-button p-2 disabled" onClick={this.enterNumber.bind(this, 7)} disabled> 7 </button>
+                                        <button className="timer-input-button p-2 disabled" onClick={this.enterNumber.bind(this, 8)} disabled> 8 </button>
+                                        <button className="timer-input-button p-2 disabled" onClick={this.enterNumber.bind(this, 9)} disabled> 9 </button>
                                     </div>
                                 )}
 
                                 {(this.state.numberEntered !== 1 && this.state.numberEntered !== 3) && (
                                     <div className="normal-timer-buttons">
-                                        <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 6)}> 6 </button>
-                                        <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 7)}> 7 </button>
-                                        <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 8)}> 8 </button>
-                                        <button className="Timer-button timer-input-button p-2" onClick={this.enterNumber.bind(this, 9)}> 9 </button>
+                                        <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 6)}> 6 </button>
+                                        <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 7)}> 7 </button>
+                                        <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 8)}> 8 </button>
+                                        <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 9)}> 9 </button>
                                     </div>
                                 )}
-                                <button className="Timer-button timer-input-button-2 p-2" onClick={this.clearNumbers}> Clear </button>
+                                <button className="timer-input-button big-timer-input-button p-2" onClick={this.clearNumbers}> Clear </button>
                             </div>
                         </div>
-                    </div>
-                )}
-                    
+                    )}
 
                     {this.state.timerOn === true && this.state.timerTime >= 1000 && 
-                        (<button className="Timer-button" onClick={this.stopTimer}>Pause</button>)}
+                        (<button className="timer-button" onClick={this.stopTimer}>Pause</button>)}
                     {(this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0) && 
-                        (<button className="Timer-button" onClick={this.resetTimer}>End</button>)}
-                    {this.state.timerTime > 0 && this.state.timerOn === false && 
-                        (<div id="Timer-button-divider"></div>)}
+                        (<button className="timer-button" onClick={this.resetTimer}>End</button>)}
+                    {(this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0) && 
+                        (<div id="timer-button-divider"></div>)}
                     {this.state.timerOn === false && (this.state.timerStart !== 0 && this.state.timerStart !== this.state.timerTime && this.state.timerTime !== 0) && 
-                        (<button className="Timer-button" onClick={this.startTimer}>Resume</button>)}
-                    {this.state.timerTime > 0 && this.state.timerOn === false && 
-                        (<div id="Timer-button-divider"></div>)}
+                        (<button className="timer-button" onClick={this.startTimer}>Resume</button>)}
                     {(this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0) && 
-                        (<button className="Timer-button" onClick={this.resetTimer}>Reset</button>)}
+                        (<div id="timer-button-divider"></div>)}
+                    {(this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0) && 
+                        (<button className="timer-button" onClick={this.resetTimer}>Reset</button>)} 
                 </div>
+
+                <div className="timer-description">
+                    <div className="d-flex flex-row justify-content-center">
+                        <input type="string" className="add-description" placeholder="Add Description (Optional)"/>
+                    </div>
+                    
+                    <div className="d-flex flex-row justify-content-center">
+                        <p className="add-description-text">
+                            Everytime timer ends, task description and time  <br />
+                            stamp will be recorded in History 
+                        </p>
+                    </div> 
+                </div>
+            </div>
         );
     }
 }
