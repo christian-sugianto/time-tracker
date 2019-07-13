@@ -106,19 +106,6 @@ class Stopwatch extends Component {
                     {this.state.timerTime > 0 && 
                         (<button className="timer-button" onClick={this.resetTimer}>Reset</button>)}
                 </div>
-                    
-                <div className="timer-description">
-                    <div className="d-flex flex-row justify-content-center">
-                        <input type="string" className="add-description" placeholder="Add Description (Optional)"/>
-                    </div>
-                    
-                    <div className="d-flex flex-row justify-content-center">
-                        <p className="add-description-text">
-                            Everytime timer ends, task description and time <br />
-                            stamp will be recorded in History 
-                        </p>
-                    </div>
-                </div>
             </div>
         );
     }
