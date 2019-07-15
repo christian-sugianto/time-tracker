@@ -5,14 +5,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Timer from './components/Timer/Timer'
 import Helper from './components/Helper/Helper'
-import Music from './components/Music/Music'
+import History from './components/History/History'
 
 //stylings
 import './styles/App.css'
 import './styles/Navbar.css'
 import './styles/Timer.css'
 import './styles/Helper.css'
-import './styles/Music.css'
+import './styles/History.css'
 
 class App extends Component {
   state = {
@@ -39,7 +39,7 @@ class App extends Component {
             </div>
 
             <div className="col-lg-4">
-              <Music />
+              <History />
             </div>            
           </div>
         </div>
