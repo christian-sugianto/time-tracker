@@ -1,20 +1,10 @@
 /* Helper Stylings */
-.helper {
-    margin-top: 200px;
-}
 
 .helper-box {
-    margin-left: 130px;
+    text-align: left;
     border: 1px solid #634832;
     color: #634832;
     padding: 10px 10px;
-    width: 330px;
-}
-
-/* Shortcut stylings */
-
-/* Notification stylings */
-.notification {
-    margin-top: 50px;
+    width: 350px;
 }
 

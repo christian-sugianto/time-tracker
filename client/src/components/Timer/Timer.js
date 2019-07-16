@@ -16,10 +16,9 @@ class Timer extends Component {
             }
         }
     }
-
     componentDidMount(){
         document.addEventListener("keydown", this.pressKey, false);
-      }
+    }
     componentWillUnmount(){
         document.removeEventListener("keydown", this.pressKey, false);
     }

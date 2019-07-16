@@ -1,5 +1,28 @@
 #app-container-override {
     background-color:#ECE0D1;
     padding: 0;
-    height: 1080px;
+    height: auto;
+    padding-bottom: 100px;
+}
+
+.helper-col {
+    margin-top: 250px;
+}
+
+.history-col {
+    margin-top: 80px;
+}
+
+.timer-col {
+    margin-top: 150px;
+}
+
+@media only screen and (max-width: 998px) {
+    .helper-col {
+        display: none;
+    }
+
+    .timer-col {
+        margin-top: 100px; 
+    }
 }

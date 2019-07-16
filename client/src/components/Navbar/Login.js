@@ -24,10 +24,6 @@ class Login extends Component {
                                         <label htmlFor="inputPassword" className="input-label">Password</label>
                                         <input type="password" className="form-control" id="inputPassword"></input>
                                     </div>
-                                    <div className="form-check">
-                                        <input type="checkbox" className="form-check-input" id="rememberMe"></input>
-                                        <label className="form-check-label remember-me">Remember Me</label>
-                                    </div>
                                     <button type="submit" className="btn btn-primary" id="loginButton">Sign in</button>
                                 </form>
                             </div>

@@ -10,7 +10,7 @@ class Helper extends Component {
         return (
             <div className="helper">
                 <Shortcut />
-                <Notification />
+                {/* <Notification /> */}
             </div>
         );
     }
