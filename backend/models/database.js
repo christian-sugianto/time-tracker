@@ -7,9 +7,16 @@ var options = {
   dbName: "focus-timer"
 };
 
-mongoose.connect(dbURI, options).then(
-  () => { console.log("Connected to MongoDB Atlas.") },
-  err => { console.log(err) }
-);
+mongoose.connect(dbURI, options);
+
+let db = mongoose.connection;
+
+db.once('open', function() {
+  console.log("connected to mongoDB atlas")
+});
+
+db.on('error', function(err) {
+  console.log(err);
+})
 
 require('./user.js');

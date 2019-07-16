@@ -31,25 +31,35 @@
 }
 
 /* modal styling */
+#modal-content-override {
+    border: 20px solid #634832;
+    border-radius: 50px;
+
+}
+
 #modal-label-signup {
-    padding-left: 150px;
+    padding-left: 65px;
     color:white;
     font-weight: 3px;
+    font-size: 36px;
 }
 
 #modal-label-login {
-    padding-left: 205px;
+    padding-left: 168px;
     color:white;
     font-weight: 3px;
+    font-size: 36px;
 }
 
 #modal-header-override {
     background-color: #634832;
+    border: none;
 }
 
-#inputLabel {
+.input-label {
     font-weight: 100px;
     font-size:20px;
+    color: white;
 }
 
 #btn-override {
@@ -60,4 +70,12 @@
     margin: 8px 0;
     border: none;
     cursor: pointer;
+}
+
+.modal-body {
+    background-color: #634832;
+}
+
+.remember-me {
+    color: white;
 }
