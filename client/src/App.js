@@ -25,7 +25,7 @@ class App extends Component {
       <div className="App">
         <div className="container-fluid" id="app-container-override">
           <div className="row">
-            <div className="col">
+            <div className="col-lg-12">
               <Navbar />
             </div>
           </div>
