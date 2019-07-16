@@ -22,7 +22,7 @@
     max-height: 45px;
 }
 
-#small-img-override {
+.small-img-override {
     height: auto;
     width: auto;
     max-width: 20px;
@@ -62,9 +62,19 @@
     color: white;
 }
 
-#btn-override {
+#loginButton {
     width: 100%;
-    background-color: grey;
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+#signupButton {
+    width: 100%;
+    background-color: green;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;

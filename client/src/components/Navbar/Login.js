@@ -5,30 +5,30 @@ class Login extends Component {
     render() {
         return (
             <div className="login">
-                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modal-label-login" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content" id ="modal-content-override">
-                            <div class="modal-header" id="modal-header-override">
-                                <h5 class="modal-title" id="modal-label-login"> Login </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div className="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modal-label-login" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content" id ="modal-content-override">
+                            <div className="modal-header" id="modal-header-override">
+                                <h5 className="modal-title" id="modal-label-login"> Login </h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                                 <form>
-                                    <div class="form-group">
-                                        <label for="inputEmail" className="input-label">Email address</label>
-                                        <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"></input>
+                                    <div className="form-group">
+                                        <label htmlFor="inputEmail" className="input-label">Email address</label>
+                                        <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp"></input>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputPassword" className="input-label">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword"></input>
+                                    <div className="form-group">
+                                        <label htmlFor="inputPassword" className="input-label">Password</label>
+                                        <input type="password" className="form-control" id="inputPassword"></input>
                                     </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="rememberMe"></input>
-                                        <label class="form-check-label" className="remember-me">Remember Me</label>
+                                    <div className="form-check">
+                                        <input type="checkbox" className="form-check-input" id="rememberMe"></input>
+                                        <label className="form-check-label remember-me">Remember Me</label>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" id="btn-override">Sign in</button>
+                                    <button type="submit" className="btn btn-primary" id="loginButton">Sign in</button>
                                 </form>
                             </div>
                         </div>
