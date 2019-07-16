@@ -8,7 +8,7 @@ class Stopwatch extends Component {
     };
 
     pressKey = (e) => {
-        if(e.keyCode == 32 && e.target == document.body){
+        if(e.keyCode === 32 && e.target === document.body){
             e.preventDefault();
 
             if ((this.state.timerOn === false && this.state.timerTime === 0) || (this.state.timerOn === false && this.state.timerTime > 0)) {
@@ -18,12 +18,12 @@ class Stopwatch extends Component {
                 this.stopTimer();
             }
         }
-        else if(e.altKey && e.target == document.body && this.state.timerTime > 0) {
+        else if(e.altKey && e.target === document.body && this.state.timerTime > 0) {
             e.preventDefault();
-            if (e.keyCode == 82) {
+            if (e.keyCode === 82) {
                 this.resetTimer();
             }
-            else if (e.keyCode == 69) {
+            else if (e.keyCode === 69) {
                 this.resetTimer();
             }
         }

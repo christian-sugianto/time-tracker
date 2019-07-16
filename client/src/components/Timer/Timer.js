@@ -8,10 +8,10 @@ class Timer extends Component {
     };
 
     pressKey = (e) => {
-        if(e.altKey && e.target == document.body) {
+        if(e.altKey && e.target === document.body) {
             e.preventDefault();
 
-            if (e.keyCode == 83) {
+            if (e.keyCode === 83) {
                 this.changeType();
             }
         }

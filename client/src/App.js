@@ -15,9 +15,16 @@ import './styles/Helper.css'
 import './styles/History.css'
 
 class App extends Component {
+  // initialize our state
   state = {
-    
-  }
+    data: [],
+    id: 0,
+    message: null,
+    intervalIsSet: false,
+    idToDelete: null,
+    idToUpdate: null,
+    objectToUpdate: null,
+  };
 
   render () {
     return (

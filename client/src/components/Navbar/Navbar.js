@@ -28,13 +28,13 @@ function Navbar() {
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">
-                            <img src={SignupPicture} id="small-img-override"></img>
+                            <img src={SignupPicture} id="small-img-override" alt="Signup Icon"></img>
                             SignUp
                         </a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">
-                            <img src={LoginPicture} id="small-img-override"></img>
+                            <img src={LoginPicture} id="small-img-override" alt="Login Icon"></img>
                             Login
                         </a>
                     </li>

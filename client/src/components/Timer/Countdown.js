@@ -11,7 +11,7 @@ class Countdown extends Component {
     };
 
     pressKey = (e) => {
-        if(e.keyCode == 32 && e.target == document.body){
+        if(e.keyCode === 32 && e.target === document.body){
             e.preventDefault();
             if (this.state.timerOn === true && this.state.timerTime >= 1000) {
                 this.stopTimer();
@@ -20,12 +20,12 @@ class Countdown extends Component {
                 this.startTimer();
             }
         }
-        else if(e.altKey && e.target == document.body && (this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0)) {
+        else if(e.altKey && e.target === document.body && (this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0)) {
             e.preventDefault();
-            if (e.keyCode == 82) {
+            if (e.keyCode === 82) {
                 this.resetTimer();
             }
-            else if (e.keyCode == 69) {
+            else if (e.keyCode === 69) {
                 this.resetTimer();
             }
         }
