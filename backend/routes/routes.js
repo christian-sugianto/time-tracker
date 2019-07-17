@@ -14,5 +14,7 @@ router.delete('/user/id/:id', userCont.deleteById);
 router.put('/user/id/:id', userCont.updateById);
 // get user by email
 router.get('/user/email/:email', userCont.getByEmail);
+// create new user
+router.post('/user', userCont.create);
 
 module.exports = router;

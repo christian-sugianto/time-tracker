@@ -67,6 +67,20 @@ var create = function(req,res){
   // TODO: npm Validator, sanitise
 
   const { name, email, password, password_cfm } = req.body;
+  // check required fields
+  if (!name || !email || !password || !password_cfm) {
+    errors.push({ msg: 'Please fill in all the fields'});
+  }
+
+  // check password match
+  if (password !== password_cfm) {
+    errors.push({ msg: 'Passwords do not match'});
+  }
+
+  // check password length
+  if (password.length < 8) {
+    errors.push({ msg: 'Password must be at least 8 characters'});
+  }
   
 };
 

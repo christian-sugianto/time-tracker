@@ -1,22 +1,109 @@
 import React, { Component } from "react";
+import $ from 'jquery';
+
+
+const initialState = {
+    name: '',
+    email: '',
+    password: '',
+    passwordCfm: '',
+    nameError: '',
+    emailError: '',
+    passwordError: '',
+    passwordCfmError: ''
+}
 
 class Signup extends Component {
-    state = {
-        name : '',
-        email: '',
-        password: '',
-        password_confirm: ''
-    }
+    state = initialState;
 
     handleChange = (e) => {
         this.setState( {
             [e.target.id]: e.target.value
-        })
+        });
     }
 
-    handlelSubmit = (e) => {
-        console.log(this.state);
+    handleSubmit = (e) => {
+        const isValid = this.validate();
+        if (isValid) {
+            console.log(this.state);
+            this.setToInitialState();
+        }
     }
+
+    setToInitialState = () => {
+        this.setState(initialState);
+    }
+
+    validate = () => {
+        let nameError = "";
+        let emailError = "";
+        let passwordError = "";
+        let passwordCfmError = "";
+
+        // name errors
+        if (!this.state.name) {
+            nameError = "please enter your name";
+        }
+
+        // email errors
+        const pattern = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!this.state.email) {
+            emailError = "please enter your email address";
+        }
+        else if (!pattern.test(this.state.email)) {
+            emailError = "please enter a valid email address"
+        }
+
+        // password errors
+        if (!this.state.password) {
+            passwordError = "please enter your password";
+        }
+        else if (this.state.password.length < 8) {
+            passwordError = "your password must be at least 8 characters"
+        }
+
+        // password confirmation errors
+        if (!this.state.passwordCfm) {
+            passwordCfmError = "please re-enter your password";
+        }
+        else if (this.state.password.length < 8) {
+            passwordCfmError = "your password must be at least 8 characters"
+        }
+        else if (this.state.passwordCfm !== this.state.password) {
+            passwordCfmError = "provided password does not match"
+        }
+
+        this.setState({
+            nameError, emailError, passwordError, passwordCfmError
+        })
+
+        if (nameError === "" && emailError === "" && passwordError === "" && passwordCfmError === "") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    createUser = () => {
+        // create body structure
+        var body = JSON.stringify({
+            'name': this.state.name,
+            'email': this.state.email,
+            'password': this.state.password,
+        });
+        // post to server
+        $.ajax({
+            type: "POST",
+            url: '/user',
+            data: body,
+            contentType: 'application/json',
+            error: function (jXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    }
+
     render() {
         return (
             <div className="signup">
@@ -25,28 +112,45 @@ class Signup extends Component {
                         <div className="modal-content" id="modal-content-override">
                             <div className="modal-header" id="modal-header-override">
                                 <h5 className="modal-title" id="modal-label-signup"> Create an Account </h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.setToInitialState}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <form onSubmit={this.handleSubmit}>
+                                <form class="needs-validation" novalidate onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="name" className="input-label">Name</label>
-                                        <input type="string" className="form-control" id="name" onChange={this.handleChange}></input>
+                                        <input type="text" className="form-control" id="name"
+                                            value={this.state.name} onChange={this.handleChange}></input>
+                                        <div className="error-message"> {this.state.nameError} </div>
                                     </div>
+                                        
+
                                     <div className="form-group">
                                         <label htmlFor="email" className="input-label">Email Address</label>
-                                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" onChange={this.handleChange}></input>
+                                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" 
+                                            value={this.state.email} onChange={this.handleChange}></input>
+                                        <div className="error-message"> {this.state.emailError} </div>
                                     </div>
+                                        
+
                                     <div className="form-group">
                                         <label htmlFor="password" className="input-label">Password</label>
-                                        <input type="password" className="form-control" id="password" onChange={this.handleChange}></input>
+                                        <input type="password" className="form-control" id="password" 
+                                            value={this.state.password} onChange={this.handleChange}></input>
+                                        <div className="error-message"> {this.state.passwordError} </div>
                                     </div>
+                                        
+
                                     <div className="form-group">
-                                        <label htmlFor="password_confirm" className="input-label">Confirm Password</label>
-                                        <input type="password" className="form-control" id="password_confirm" onChange={this.handleChange}></input>
+                                        <label htmlFor="passwordCfm" className="input-label">Confirm Password</label>
+                                        <input type="password" className="form-control" id="passwordCfm" 
+                                            value={this.state.passwordCfm} onChange={this.handleChange}></input>
+                                        <div className="error-message"> {this.state.passwordCfmError} </div>
                                     </div>
+                                        
+
+
                                     <button type="submit" className="btn btn-primary" id="signupButton">Sign Up</button>
                                 </form>
                             </div>

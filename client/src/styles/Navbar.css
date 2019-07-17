@@ -5,7 +5,7 @@
 }
 
 #navbar-brand-override {
-    font-size:30px;
+    font-size: 26px;
     display:inline-block;
     -webkit-text-stroke: 2px black;
     font-weight: bold;
@@ -18,8 +18,8 @@
 #img-override {
     height: auto; 
     width: auto; 
-    max-width: 45px; 
-    max-height: 45px;
+    max-width: 40px; 
+    max-height: 40px;
 }
 
 #small-img-override {
@@ -89,3 +89,8 @@
     color: white;
 }
 
+.error-message {
+    color: rgb(255, 106, 106);
+    font-weight: lighter;
+    font-size: 14px;
+}
