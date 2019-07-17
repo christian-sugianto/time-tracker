@@ -17,7 +17,7 @@ class Login extends Component {
                             <div className="modal-body">
                                 <form>
                                     <div className="form-group">
-                                        <label htmlFor="inputEmail" className="input-label">Email address</label>
+                                        <label htmlFor="inputEmail" className="input-label">Email Address</label>
                                         <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp"></input>
                                     </div>
                                     <div className="form-group">
