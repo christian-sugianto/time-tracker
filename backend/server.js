@@ -1,19 +1,26 @@
-const cors = require('cors');
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 3001;
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
-// enable all cors requests
-app.use(cors());
+const app = express();
+
+// Bodyparser middleware
+app.use(
+    bodyParser.urlencoded({
+      extended: false
+    })
+  );
+app.use(bodyParser.json());
 
 // set up MongoDB Atlas
-require('./models/database')
+require('./models/db');
 
 // assign routes
 var router = require('./routes/routes');
 app.use('/', router);
 
 // listen
+const port = process.env.PORT || 3001;
 app.listen(port, function(){
     console.log("Listening on port " + port);
 });

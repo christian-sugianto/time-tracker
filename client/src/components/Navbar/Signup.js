@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import $ from 'jquery';
-
+import axios from 'axios';
 
 const initialState = {
     name: '',
@@ -17,12 +17,13 @@ class Signup extends Component {
     state = initialState;
 
     handleChange = (e) => {
-        this.setState( {
+        this.setState({
             [e.target.id]: e.target.value
         });
     }
 
     handleSubmit = (e) => {
+        e.preventDefault();
         const isValid = this.validate();
         if (isValid) {
             console.log(this.state);
@@ -32,6 +33,20 @@ class Signup extends Component {
 
     setToInitialState = () => {
         this.setState(initialState);
+    }
+
+    validate_email_uniqueness = (email) => {
+        $.ajax({
+            type: "GET",
+            url: '/user/email/' + email,
+            success: function (data) {
+                return false;
+            },
+            error: function(jxHR, textStatus, errorThrown) {
+                alert(errorThrown);
+                return true;
+            }
+        });
     }
 
     validate = () => {
@@ -53,13 +68,16 @@ class Signup extends Component {
         else if (!pattern.test(this.state.email)) {
             emailError = "please enter a valid email address"
         }
+        else if (this.validate_email_uniqueness(this.state.email)) {
+            emailError = "provided email is already used"
+        }
 
         // password errors
         if (!this.state.password) {
             passwordError = "please enter your password";
         }
         else if (this.state.password.length < 8) {
-            passwordError = "your password must be at least 8 characters"
+            passwordError = "password must be at least 8 characters"
         }
 
         // password confirmation errors
@@ -67,7 +85,7 @@ class Signup extends Component {
             passwordCfmError = "please re-enter your password";
         }
         else if (this.state.password.length < 8) {
-            passwordCfmError = "your password must be at least 8 characters"
+            passwordCfmError = "password must be at least 8 characters"
         }
         else if (this.state.passwordCfm !== this.state.password) {
             passwordCfmError = "provided password does not match"

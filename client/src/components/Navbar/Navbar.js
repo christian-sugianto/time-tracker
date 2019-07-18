@@ -31,7 +31,7 @@ function Navbar() {
                     <li className="nav-item active">
                         <a className="nav-link" href="#" data-toggle="modal" data-target="#signupModal">
                             <img src={SignupPicture} id="small-img-override"></img>
-                            Signup
+                            Register
                         </a>
                     </li>
                     <li className="nav-item active">
