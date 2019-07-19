@@ -1,52 +1,56 @@
 import React, { Component } from "react";
 import $ from 'jquery';
-import axios from 'axios';
 
 const initialState = {
     name: '',
     email: '',
     password: '',
     passwordCfm: '',
-    nameError: '',
-    emailError: '',
-    passwordError: '',
-    passwordCfmError: ''
+    errors: {}
+    // nameError: '',
+    // emailError: '',
+    // passwordError: '',
+    // passwordCfmError: ''
 }
 
-class Signup extends Component {
-    state = initialState;
+class Register extends Component {
+    // state = initialState;
 
-    handleChange = (e) => {
+    constructor() {
+        super();
+        this.state = {
+          name: "",
+          email: "",
+          password: "",
+          passwordCfm: "",
+          errors: {}
+        };
+    }
+
+    onChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
         });
     }
 
-    handleSubmit = (e) => {
+    onSubmit = (e) => {
         e.preventDefault();
-        const isValid = this.validate();
-        if (isValid) {
-            console.log(this.state);
-            this.setToInitialState();
+        // const isValid = this.validate();
+        // if (isValid) {
+        //     console.log(this.state);
+        //     this.setToInitialState();
+        // }
+        const newUser = {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            password2: this.state.password2
         }
+        console.log(newUser);
     }
 
     setToInitialState = () => {
         this.setState(initialState);
-    }
-
-    validate_email_uniqueness = (email) => {
-        $.ajax({
-            type: "GET",
-            url: '/user/email/' + email,
-            success: function (data) {
-                return false;
-            },
-            error: function(jxHR, textStatus, errorThrown) {
-                alert(errorThrown);
-                return true;
-            }
-        });
     }
 
     validate = () => {
@@ -103,26 +107,8 @@ class Signup extends Component {
         }
     }
 
-    createUser = () => {
-        // create body structure
-        var body = JSON.stringify({
-            'name': this.state.name,
-            'email': this.state.email,
-            'password': this.state.password,
-        });
-        // post to server
-        $.ajax({
-            type: "POST",
-            url: '/user',
-            data: body,
-            contentType: 'application/json',
-            error: function (jXHR, textStatus, errorThrown) {
-                alert(errorThrown);
-            }
-        });
-    }
-
     render() {
+        const { errors } = this.state;
         return (
             <div className="signup">
                 <div className="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="modal-label-signup" aria-hidden="true">
@@ -135,35 +121,35 @@ class Signup extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <form class="needs-validation" novalidate onSubmit={this.handleSubmit}>
+                                <form novalidate onSubmit={this.onSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="name" className="input-label">Name</label>
-                                        <input type="text" className="form-control" id="name"
-                                            value={this.state.name} onChange={this.handleChange}></input>
+                                        <input type="text" className="form-control" id="name" error={errors.name}
+                                            value={this.state.name} onChange={this.onChange}></input>
                                         <div className="error-message"> {this.state.nameError} </div>
                                     </div>
                                         
 
                                     <div className="form-group">
                                         <label htmlFor="email" className="input-label">Email Address</label>
-                                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" 
-                                            value={this.state.email} onChange={this.handleChange}></input>
+                                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" error={errors.email}
+                                            value={this.state.email} onChange={this.onChange}></input>
                                         <div className="error-message"> {this.state.emailError} </div>
                                     </div>
                                         
 
                                     <div className="form-group">
                                         <label htmlFor="password" className="input-label">Password</label>
-                                        <input type="password" className="form-control" id="password" 
-                                            value={this.state.password} onChange={this.handleChange}></input>
+                                        <input type="password" className="form-control" id="password" error={errors.password}
+                                            value={this.state.password} onChange={this.onChange}></input>
                                         <div className="error-message"> {this.state.passwordError} </div>
                                     </div>
                                         
 
                                     <div className="form-group">
                                         <label htmlFor="passwordCfm" className="input-label">Confirm Password</label>
-                                        <input type="password" className="form-control" id="passwordCfm" 
-                                            value={this.state.passwordCfm} onChange={this.handleChange}></input>
+                                        <input type="password" className="form-control" id="passwordCfm" error={errors.passwordCfm}
+                                            value={this.state.passwordCfm} onChange={this.onChange}></input>
                                         <div className="error-message"> {this.state.passwordCfmError} </div>
                                     </div>
                                         
@@ -180,4 +166,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+export default Register;

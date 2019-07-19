@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import ClockPicture from '../../assets/pictures/clock.png'
 import LoginPicture from '../../assets/pictures/login.png'
 import SignupPicture from '../../assets/pictures/signup.png'
-import Signup from './Signup'
-import Login from './Login'
+import Register from '../Auth/Register'
+import Login from '../Auth/Login'
 
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark navbar-override">
             <a className="navbar-brand" id="navbar-brand-override" href="#">
-                FocusTimer
+                FocusTime
                 <img className="img-fluid" id="img-override" src= { ClockPicture } alt="clock"></img>
             </a>
 
@@ -42,7 +43,7 @@ function Navbar() {
                     </li>
                 </ul>
 
-                <Signup />
+                <Register />
                 <Login />
             </div>
         </nav>

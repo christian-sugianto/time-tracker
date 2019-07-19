@@ -1,0 +1,64 @@
+/* modal styling */
+#modal-content-override {
+    border: 20px solid #634832;
+    border-radius: 50px;
+}
+
+#modal-label-signup {
+    padding-left: 65px;
+    color:white;
+    font-weight: 3px;
+    font-size: 36px;
+}
+
+#modal-label-login {
+    padding-left: 168px;
+    color:white;
+    font-weight: 3px;
+    font-size: 36px;
+}
+
+#modal-header-override {
+    background-color: #634832;
+    border: none;
+}
+
+.input-label {
+    font-weight: 100px;
+    font-size:20px;
+    color: white;
+}
+
+#loginButton {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+#signupButton {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    background-color: #634832;
+}
+
+.remember-me {
+    color: white;
+}
+
+.error-message {
+    color: rgb(250, 148, 148);
+    font-weight: lighter;
+    font-size: 14px;
+}
