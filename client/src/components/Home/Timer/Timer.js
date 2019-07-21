@@ -7,7 +7,10 @@ class Timer extends Component {
         isCountdown: false,
     };
 
+    // when key is pressed
     pressKey = (e) => {
+
+        // change timer type
         if(e.altKey && e.target === document.body) {
             e.preventDefault();
 
@@ -16,9 +19,13 @@ class Timer extends Component {
             }
         }
     }
+
+    // add event listener after first render
     componentDidMount(){
         document.addEventListener("keydown", this.pressKey, false);
     }
+
+    // remove event listener to avoid memory leak
     componentWillUnmount(){
         document.removeEventListener("keydown", this.pressKey, false);
     }

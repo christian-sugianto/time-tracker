@@ -7,35 +7,41 @@ class Stopwatch extends Component {
         timerTime: 0,
     };
 
+    // change key press based on key presses
     pressKey = (e) => {
-        if(e.keyCode === 32 && e.target === document.body){
-            e.preventDefault();
 
-            if ((this.state.timerOn === false && this.state.timerTime === 0) || (this.state.timerOn === false && this.state.timerTime > 0)) {
+        // prevents web from scrolling down
+        e.preventDefault();
+
+        // start or pause timer when space button is pressed 
+        if(e.keyCode === 32 && e.target === document.body){
+
+            if ((this.state.timerOn === false && this.state.timerTime === 0) || 
+                (this.state.timerOn === false && this.state.timerTime > 0)) {
                 this.startTimer();
             }
+
             else if (this.state.timerOn === true) {
                 this.stopTimer();
             }
         }
+
+        // alt button is pressed
         else if(e.altKey && e.target === document.body && this.state.timerTime > 0) {
-            e.preventDefault();
+
+             // "alt+r" resets timer
             if (e.keyCode === 82) {
                 this.resetTimer();
             }
+
+             // "alt+e ends timer" 
             else if (e.keyCode === 69) {
                 this.resetTimer();
             }
         }
     }
 
-    componentDidMount(){
-        document.addEventListener("keydown", this.pressKey, false);
-      }
-    componentWillUnmount(){
-        document.removeEventListener("keydown", this.pressKey, false);
-    }
-
+    // start timer
     startTimer = () => {
         if (this.state.timerOn === false) {
             this.setState({
@@ -52,6 +58,7 @@ class Stopwatch extends Component {
         }
     }
     
+    // stop timer
     stopTimer = () => {
         this.setState({
             timerOn: false,
@@ -59,6 +66,7 @@ class Stopwatch extends Component {
         clearInterval(this.timer);
     }
 
+    // reset timer
     resetTimer = () => {
         this.setState({
             timerOn: false,
@@ -66,6 +74,16 @@ class Stopwatch extends Component {
             timerTime: 0
         })
         clearInterval(this.timer);
+    }
+
+    // adds event listener after first render
+    componentDidMount(){
+        document.addEventListener("keydown", this.pressKey, false);
+    }
+
+    // removes event listener to avoid memory leak
+    componentWillUnmount(){
+        document.removeEventListener("keydown", this.pressKey, false);
     }
 
     render() {

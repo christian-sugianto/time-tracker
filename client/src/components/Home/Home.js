@@ -5,8 +5,6 @@ import Timer from './Timer/Timer';
 import Helper from './Helper/Helper';
 import History from './History/History';
 
-
-
 class Home extends Component {
   render () {
     return (

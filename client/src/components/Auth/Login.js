@@ -10,12 +10,17 @@ class Login extends Component {
         };
     }
 
+    // set state value based on target value
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
 
+    // send user data
     onSubmit = e => {
+
+        // prevents web from refreshing the entire page
         e.preventDefault();
+
         const userData = {
             email: this.state.email,
             password: this.state.password

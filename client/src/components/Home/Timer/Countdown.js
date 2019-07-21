@@ -10,35 +10,45 @@ class Countdown extends Component {
         lengthOfNumbers: 0
     };
 
+    // change key press based on key presses
     pressKey = (e) => {
+
+        // prevents web from scrolling down
+        e.preventDefault();
+
+        // start or pause timer when space button is pressed 
         if(e.keyCode === 32 && e.target === document.body){
-            e.preventDefault();
+
             if (this.state.timerOn === true && this.state.timerTime >= 1000) {
                 this.stopTimer();
             }
-            else if (this.state.timerOn === false && (this.state.timerStart !== 0 && this.state.timerStart !== this.state.timerTime && this.state.timerTime !== 0)) {
+
+            else if (this.state.timerOn === false && (this.state.timerStart !== 0 && 
+                this.state.timerStart !== this.state.timerTime && this.state.timerTime !== 0)) {
                 this.startTimer();
             }
         }
-        else if(e.altKey && e.target === document.body && (this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0)) {
-            e.preventDefault();
+
+        // alt button is pressed
+        else if(e.altKey && e.target === document.body && (this.state.timerOn === false || this.state.timerTime < 1000) && 
+            (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0)) {
+            
+            // "alt+r" resets timer
             if (e.keyCode === 82) {
                 this.resetTimer();
             }
+
+            // "alt+e ends timer" 
             else if (e.keyCode === 69) {
                 this.resetTimer();
             }
         }
     }
 
-    componentDidMount(){
-        document.addEventListener("keydown", this.pressKey, false);
-      }
-    componentWillUnmount(){
-        document.removeEventListener("keydown", this.pressKey, false);
-    }
-
+    // enter input number in countdown
     enterNumber = (number) => {
+
+        // enters first input number
         if (this.state.lengthOfNumbers === 0) {
             this.setState({
                 timerTime: number * 1000,
@@ -47,6 +57,8 @@ class Countdown extends Component {
                 lengthOfNumbers: this.state.lengthOfNumbers + 1
             });
         }
+
+        // enters second input number
         if (this.state.lengthOfNumbers === 1) {
             this.setState({
                 timerTime: number * 1000 + this.state.numbersEntered[0] * 10,
@@ -55,6 +67,8 @@ class Countdown extends Component {
                 lengthOfNumbers: this.state.lengthOfNumbers + 1
             })
         }
+
+        // enters third input number
         if (this.state.lengthOfNumbers === 2) {
             this.setState({
                 timerTime: number * 1000 + this.state.numbersEntered[0] * 10 + this.state.numbersEntered[1] * 6,
@@ -64,34 +78,47 @@ class Countdown extends Component {
             })
         }
 
+        // enters fourt input number
         if (this.state.lengthOfNumbers === 3) {
             this.setState({
-                timerTime: number * 1000 + this.state.numbersEntered[0] * 10 + this.state.numbersEntered[1] * 6 + this.state.numbersEntered[2] * 10,
-                numbersEntered: [number *1000, this.state.numbersEntered[0] * 10, this.state.numbersEntered[1] * 6,  this.state.numbersEntered[2] * 10, 0, 0],
-                rawNumbersEntered: [number, this.state.rawNumbersEntered[0], this.state.rawNumbersEntered[1],  this.state.rawNumbersEntered[2], 0, 0],
+                timerTime: number * 1000 + this.state.numbersEntered[0] * 10 + this.state.numbersEntered[1] * 6 + 
+                            this.state.numbersEntered[2] * 10,
+                numbersEntered: [number *1000, this.state.numbersEntered[0] * 10, this.state.numbersEntered[1] * 6,  
+                            this.state.numbersEntered[2] * 10, 0, 0],
+                rawNumbersEntered: [number, this.state.rawNumbersEntered[0], this.state.rawNumbersEntered[1],  
+                            this.state.rawNumbersEntered[2], 0, 0],
                 lengthOfNumbers: this.state.lengthOfNumbers + 1
             })
         }
 
+        // enters fifth input number
         if (this.state.lengthOfNumbers === 4) {
             this.setState({
-                timerTime: number * 1000 + this.state.numbersEntered[0] * 10 + this.state.numbersEntered[1] * 6 + this.state.numbersEntered[2] * 10 + this.state.numbersEntered[3] * 6,
-                numbersEntered: [number *1000, this.state.numbersEntered[0] * 10, this.state.numbersEntered[1] * 6,  this.state.numbersEntered[2] * 10, this.state.numbersEntered[3] * 6, 0],
-                rawNumbersEntered: [number, this.state.rawNumbersEntered[0], this.state.rawNumbersEntered[1],  this.state.rawNumbersEntered[2], this.state.rawNumbersEntered[3], 0],
+                timerTime: number * 1000 + this.state.numbersEntered[0] * 10 + this.state.numbersEntered[1] * 6 + 
+                            this.state.numbersEntered[2] * 10 + this.state.numbersEntered[3] * 6,
+                numbersEntered: [number *1000, this.state.numbersEntered[0] * 10, this.state.numbersEntered[1] * 6,  
+                            this.state.numbersEntered[2] * 10, this.state.numbersEntered[3] * 6, 0],
+                rawNumbersEntered: [number, this.state.rawNumbersEntered[0], this.state.rawNumbersEntered[1],  
+                            this.state.rawNumbersEntered[2], this.state.rawNumbersEntered[3], 0],
                 lengthOfNumbers: this.state.lengthOfNumbers + 1
             })
         }
 
+        // enters sixth input number
         if (this.state.lengthOfNumbers === 5) {
             this.setState({
-                timerTime: number * 1000 + this.state.numbersEntered[0] * 10 + this.state.numbersEntered[1] * 6 + this.state.numbersEntered[2] * 10 + this.state.numbersEntered[3] * 6 + this.state.numbersEntered[4] * 10,
-                numbersEntered: [number *1000, this.state.numbersEntered[0] * 10, this.state.numbersEntered[1] * 6,  this.state.numbersEntered[2] * 10, this.state.numbersEntered[3] * 6, this.state.numbersEntered[4] * 10],
-                rawNumbersEntered: [number, this.state.rawNumbersEntered[0], this.state.rawNumbersEntered[1],  this.state.rawNumbersEntered[2], this.state.rawNumbersEntered[3], this.state.rawNumbersEntered[4]],
+                timerTime: number * 1000 + this.state.numbersEntered[0] * 10 + this.state.numbersEntered[1] * 6 + 
+                            this.state.numbersEntered[2] * 10 + this.state.numbersEntered[3] * 6 + this.state.numbersEntered[4] * 10,
+                numbersEntered: [number *1000, this.state.numbersEntered[0] * 10, this.state.numbersEntered[1] * 6,  
+                            this.state.numbersEntered[2] * 10, this.state.numbersEntered[3] * 6, this.state.numbersEntered[4] * 10],
+                rawNumbersEntered: [number, this.state.rawNumbersEntered[0], this.state.rawNumbersEntered[1],  
+                            this.state.rawNumbersEntered[2], this.state.rawNumbersEntered[3], this.state.rawNumbersEntered[4]],
                 lengthOfNumbers: this.state.lengthOfNumbers + 1
             })
         }
     }
 
+    // clear input number
     clearNumbers = () => {
         this.setState({
             timerOn: false,
@@ -103,7 +130,10 @@ class Countdown extends Component {
         })
     }
     
+    // start timer
     startTimer = () => {
+
+        // max time can be input
         if (this.state.timerTime > 360000000) {
             this.setState({
                 timerOn: true,
@@ -111,6 +141,7 @@ class Countdown extends Component {
                 timerStart: 3600000000
             })
         }
+
         else {
             this.setState({
                 timerOn: true,
@@ -119,6 +150,7 @@ class Countdown extends Component {
             });
         }
         
+        // countdown starts
         this.timer = setInterval(() => {
             const newTime = this.state.timerTime - 10;
             if (newTime >= 0) {
@@ -134,11 +166,13 @@ class Countdown extends Component {
         }, 10);
     };
     
+    // stops timer
     stopTimer = () => {
         clearInterval(this.timer);
         this.setState({ timerOn: false });
     };
 
+    // reset timer
     resetTimer = () => {
         this.setState({
             timerOn: false,
@@ -150,6 +184,16 @@ class Countdown extends Component {
         })
         clearInterval(this.timer);
     };
+
+    // adds event listener after first render
+    componentDidMount(){
+        document.addEventListener("keydown", this.pressKey, false);
+    }
+
+    // removes event listener to avoid memory leak
+    componentWillUnmount(){
+        document.removeEventListener("keydown", this.pressKey, false);
+    }
 
     render() {
         const { timerTime } = this.state;

@@ -14,25 +14,36 @@ const initialState = {
 }
 
 class Register extends Component {
+
+    // initialise state
     constructor() {
         super();
         this.state = {
-          name: "",
-          email: "",
-          password: "",
-          passwordCfm: "",
-          errors: {}
+            name: "",
+            email: "",
+            password: "",
+            passwordCfm: "",
+            nameError: '',
+            emailError: '',
+            passwordError: '',
+            passwordCfmError: ''
         };
     }
 
+    // set state value based on target value
     onChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
         });
     }
 
+    // send new user data
     onSubmit = (e) => {
+
+        // prevents web from refreshing the entire page
         e.preventDefault();
+
+        // checks if user input is valid
         const isValid = this.validate();
         if (isValid) {
             console.log(this.state);
@@ -46,10 +57,12 @@ class Register extends Component {
         }
     }
 
+    // revert to initialState
     setToInitialState = () => {
         this.setState(initialState);
     }
 
+    // validate user input into the registration form
     validate = () => {
         let nameError = "";
         let emailError = "";
@@ -92,10 +105,12 @@ class Register extends Component {
             passwordCfmError = "provided password does not match"
         }
 
+        // set error states
         this.setState({
             nameError, emailError, passwordError, passwordCfmError
         })
 
+        // returns true if there is no error
         if (nameError === "" && emailError === "" && passwordError === "" && passwordCfmError === "") {
             return true;
         }
@@ -104,6 +119,7 @@ class Register extends Component {
         }
     }
 
+    // checks if new user's email is already in the server
     email_uniqueness_validator = (email) => {
         $.ajax({
             type: "GET",
@@ -142,7 +158,7 @@ class Register extends Component {
                                 <form novalidate onSubmit={this.onSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="name" className="input-label">Name</label>
-                                        <input type="text" className="form-control" id="name" error={errors.name}
+                                        <input type="text" className="form-control" id="name"
                                             value={this.state.name} onChange={this.onChange}></input>
                                         <div className="error-message"> {this.state.nameError} </div>
                                     </div>
@@ -150,7 +166,7 @@ class Register extends Component {
 
                                     <div className="form-group">
                                         <label htmlFor="email" className="input-label">Email Address</label>
-                                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" error={errors.email}
+                                        <input type="email" className="form-control" id="email" aria-describedby="emailHelp"
                                             value={this.state.email} onChange={this.onChange}></input>
                                         <div className="error-message"> {this.state.emailError} </div>
                                     </div>
@@ -158,7 +174,7 @@ class Register extends Component {
 
                                     <div className="form-group">
                                         <label htmlFor="password" className="input-label">Password</label>
-                                        <input type="password" className="form-control" id="password" error={errors.password}
+                                        <input type="password" className="form-control" id="password"
                                             value={this.state.password} onChange={this.onChange}></input>
                                         <div className="error-message"> {this.state.passwordError} </div>
                                     </div>
@@ -166,7 +182,7 @@ class Register extends Component {
 
                                     <div className="form-group">
                                         <label htmlFor="passwordCfm" className="input-label">Confirm Password</label>
-                                        <input type="password" className="form-control" id="passwordCfm" error={errors.passwordCfm}
+                                        <input type="password" className="form-control" id="passwordCfm"
                                             value={this.state.passwordCfm} onChange={this.onChange}></input>
                                         <div className="error-message"> {this.state.passwordCfmError} </div>
                                     </div>
