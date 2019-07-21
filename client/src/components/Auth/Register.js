@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import $ from 'jquery';
+import axios from 'axios';
 
 const initialState = {
     name: '',
     email: '',
     password: '',
     passwordCfm: '',
-    errors: {}
-    // nameError: '',
-    // emailError: '',
-    // passwordError: '',
-    // passwordCfmError: ''
+    nameError: '',
+    emailError: '',
+    passwordError: '',
+    passwordCfmError: ''
 }
 
 class Register extends Component {
-    // state = initialState;
-
     constructor() {
         super();
         this.state = {
@@ -35,18 +33,17 @@ class Register extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        // const isValid = this.validate();
-        // if (isValid) {
-        //     console.log(this.state);
-        //     this.setToInitialState();
-        // }
+        const isValid = this.validate();
+        if (isValid) {
+            console.log(this.state);
+            this.setToInitialState();
+        }
         const newUser = {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
             password2: this.state.password2
         }
-        console.log(newUser);
     }
 
     setToInitialState = () => {
@@ -105,6 +102,27 @@ class Register extends Component {
         else {
             return false;
         }
+    }
+
+    email_uniqueness_validator = (email) => {
+        $.ajax({
+            type: "GET",
+            url: '/user/email/' + email,
+            success: function (data) {
+                if (data.length > 0) {
+                    $('#emailNotUnique').css('display', 'block');
+                } else {
+                    $('#emailNotUnique').css('display', 'none');
+                }
+            },
+            error: function(jxHR, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    }
+
+    create = () => {
+
     }
 
     render() {

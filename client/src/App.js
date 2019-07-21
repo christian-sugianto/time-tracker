@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { Provider } from "react-redux";
-import store from "./store";
-
 // import components
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -19,21 +16,19 @@ import './styles/Navbar.css';
 class App extends Component {
   render () {
     return (
-      <Provider store={store}>
-        <Router>
-          <div className="App">
-            <div className="container-fluid" id="app-container-override">
-              <div className="row">
-                <div className="col-lg-12">
-                  <Navbar />
-                </div>
+      <Router>
+        <div className="App">
+          <div className="container-fluid" id="app-container-override">
+            <div className="row">
+              <div className="col-lg-12">
+                <Navbar />
               </div>
-
-              <Route exact path="/" component={Home} />
             </div>
+
+            <Route exact path="/" component={Home}/>
           </div>
-        </Router>
-      </Provider>
+        </div>
+      </Router>
     );
   }
 }
