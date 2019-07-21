@@ -119,6 +119,14 @@ class Register extends Component {
         }
     }
 
+    validate2 = () => {
+        axios.post(`http://localhost:3001/user/register`)
+        .then(res => {
+          const persons = res.data;
+          this.setState({ persons });
+        })
+    }
+
     // checks if new user's email is already in the server
     email_uniqueness_validator = (email) => {
         $.ajax({

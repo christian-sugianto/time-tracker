@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
-
+var cors = require("cors");
 var user = require('./routes/api/user');
 
 const app = express();
@@ -14,6 +14,9 @@ app.use(
     })
   );
 app.use(bodyParser.json());
+
+// use cors to allow cross-origin requests 
+app.use(cors());
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -33,7 +36,7 @@ app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
 
-// assign routes
+// assign user routes
 app.use('/api/user', user);
 
 // listen

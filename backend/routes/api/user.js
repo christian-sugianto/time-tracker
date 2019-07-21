@@ -51,7 +51,7 @@ router.delete('/id/:id', function(req,res) {
 });
 
 // update user by id
-router.put('/user/id/:id', function(req, res) {
+router.put('/id/:id', function(req, res) {
     var userId = req.params.id;
     User.findByIdAndUpdate(userId, req.body, function(err, user) {
       if(!err) {
@@ -76,7 +76,7 @@ router.get('/email/:email', function(req, res) {
     });
 });
 
-// @route POST api/users/register
+// @route POST api/user/register
 // @desc Register user
 // @access Public
 router.post("/register", (req, res) => {
@@ -112,7 +112,7 @@ router.post("/register", (req, res) => {
   });
 });
 
-// @route POST api/users/login
+// @route POST api/user/login
 // @desc Login user and return JWT token
 // @access Public
 router.post("/login", (req, res) => {

@@ -10,11 +10,11 @@ class Stopwatch extends Component {
     // change key press based on key presses
     pressKey = (e) => {
 
-        // prevents web from scrolling down
-        e.preventDefault();
-
         // start or pause timer when space button is pressed 
         if(e.keyCode === 32 && e.target === document.body){
+
+            // prevents web from scrolling down
+            e.preventDefault();
 
             if ((this.state.timerOn === false && this.state.timerTime === 0) || 
                 (this.state.timerOn === false && this.state.timerTime > 0)) {
