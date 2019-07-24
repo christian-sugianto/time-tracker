@@ -12,7 +12,7 @@
 - leaderboards
 
 ### Homepage
-[readme-img/homepage.png]
+![Site Demo](readme-img/homepage.png)
 
 ### How to run the program with npm:
 - clone the repository
