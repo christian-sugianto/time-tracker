@@ -2,21 +2,24 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
-var cors = require("cors");
-var user = require('./routes/api/user');
+const cors = require('cors'); // addition we make
+const fileUpload = require('express-fileupload'); //addition we make
+const user = require('./routes/api/user');
 
 const app = express();
 
 // Bodyparser middleware
 app.use(
     bodyParser.urlencoded({
-      extended: false
+      extended: true
     })
   );
 app.use(bodyParser.json());
 
 // use cors to allow cross-origin requests 
 app.use(cors());
+// use fileuplaod for uploading files. 
+app.use(fileUpload());
 
 // DB Config
 const db = require("./config/keys").mongoURI;

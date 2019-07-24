@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import $ from 'jquery';
-import axios from 'axios';
 
 const initialState = {
     name: '',
@@ -10,7 +9,8 @@ const initialState = {
     nameError: '',
     emailError: '',
     passwordError: '',
-    passwordCfmError: ''
+    passwordCfmError: '',
+    isDisplayed: false
 }
 
 class Register extends Component {
@@ -18,16 +18,7 @@ class Register extends Component {
     // initialise state
     constructor() {
         super();
-        this.state = {
-            name: "",
-            email: "",
-            password: "",
-            passwordCfm: "",
-            nameError: '',
-            emailError: '',
-            passwordError: '',
-            passwordCfmError: ''
-        };
+        this.state = initialState;
     }
 
     // set state value based on target value
@@ -43,18 +34,8 @@ class Register extends Component {
         // prevents web from refreshing the entire page
         e.preventDefault();
 
-        // checks if user input is valid
-        const isValid = this.validate();
-        if (isValid) {
-            console.log(this.state);
-            this.setToInitialState();
-        }
-        const newUser = {
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password,
-            password2: this.state.password2
-        }
+        // create new user
+        this.createNewUser();
     }
 
     // revert to initialState
@@ -80,29 +61,31 @@ class Register extends Component {
             emailError = "please enter your email address";
         }
         else if (!pattern.test(this.state.email)) {
-            emailError = "please enter a valid email address"
+            emailError = "please enter a valid email address";
         }
-        else if (this.validate_email_uniqueness(this.state.email)) {
-            emailError = "provided email is already used"
-        }
+        else if (this.emailIsUnique(this.state.email).done(function(data){
+            if(data.length > 0) {
+                emailError = "provided email is already used";
+            }
+        }));
 
         // password errors
         if (!this.state.password) {
             passwordError = "please enter your password";
         }
         else if (this.state.password.length < 8) {
-            passwordError = "password must be at least 8 characters"
+            passwordError = "password must be at least 8 characters";
         }
 
         // password confirmation errors
         if (!this.state.passwordCfm) {
             passwordCfmError = "please re-enter your password";
         }
-        else if (this.state.password.length < 8) {
-            passwordCfmError = "password must be at least 8 characters"
+        else if (this.state.passwordCfm.length < 8) {
+            passwordCfmError = "password must be at least 8 characters";
         }
         else if (this.state.passwordCfm !== this.state.password) {
-            passwordCfmError = "provided password does not match"
+            passwordCfmError = "provided password does not match";
         }
 
         // set error states
@@ -119,34 +102,54 @@ class Register extends Component {
         }
     }
 
-    validate2 = () => {
-        axios.post(`http://localhost:3001/user/register`)
-        .then(res => {
-          const persons = res.data;
-          this.setState({ persons });
-        })
+    // validate and create new user
+    createNewUser = () => {
+
+        // checks if user input is valid
+        const isValid = this.validate();
+        if (isValid) {
+
+            const newUser = {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+                passwordCfm: this.state.passwordCfm
+            }
+
+            // convert to JSON string
+            var body = JSON.stringify(newUser);
+            
+            // post to server
+            $.ajax({
+                type: "POST",
+                url: 'http://localhost:3001/api/user/register',
+                data: body,
+                contentType: 'application/json',
+                error: function (jXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+
+            this.setToInitialState();
+
+            // close modal after sign up
+            $(function () {
+                $('#signupModal').modal('toggle');
+            });
+        }
     }
 
     // checks if new user's email is already in the server
-    email_uniqueness_validator = (email) => {
-        $.ajax({
+    emailIsUnique = (email) => {
+        return $.ajax({
             type: "GET",
-            url: '/user/email/' + email,
-            success: function (data) {
-                if (data.length > 0) {
-                    $('#emailNotUnique').css('display', 'block');
-                } else {
-                    $('#emailNotUnique').css('display', 'none');
-                }
-            },
-            error: function(jxHR, textStatus, errorThrown) {
+            url: 'http://localhost:3001/api/user/email/' + email,
+            async: false,
+            contentType: 'application/json',
+            error: function (jXHR, textStatus, errorThrown) {
                 alert(errorThrown);
             }
-        });
-    }
-
-    create = () => {
-
+        })
     }
 
     render() {

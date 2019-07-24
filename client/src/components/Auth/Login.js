@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import $ from 'jquery';
 
 class Login extends Component {
     constructor() {
@@ -6,7 +7,7 @@ class Login extends Component {
         this.state = {
           email: "",
           password: "",
-          errors: {}
+          error: ""
         };
     }
 
@@ -20,7 +21,7 @@ class Login extends Component {
 
         // prevents web from refreshing the entire page
         e.preventDefault();
-
+        
         const userData = {
             email: this.state.email,
             password: this.state.password
@@ -28,8 +29,11 @@ class Login extends Component {
         console.log(userData);
     };
 
+    validate = () => {
+
+    }
+
     render() {
-        const { errors } = this.state;
         return (
             <div className="login">
                 <div className="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modal-label-login" aria-hidden="true">
@@ -50,8 +54,7 @@ class Login extends Component {
                                             id="email" 
                                             className="form-control" 
                                             onChange={this.onChange}
-                                            value={this.state.email}
-                                            error={errors.password}/>    
+                                            value={this.state.email}/>    
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="password" className="input-label">Password</label>
@@ -60,8 +63,7 @@ class Login extends Component {
                                             type="password"
                                             className="form-control"
                                             onChange={this.onChange}
-                                            value={this.state.password}
-                                            error={errors.password}/>
+                                            value={this.state.password}/>
                                     </div>
                                     <button type="submit" className="btn btn-primary" id="loginButton">Sign in</button>
                                 </form>
