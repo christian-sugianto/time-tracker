@@ -1,5 +1,8 @@
 # Focus Timer
 
+### Homepage
+![Homepage Demo](readme-img/homepage.jpg)
+
 ### Currently Functional:
 - Both Stopwatch and Countdown Timer
 - Key Shortcuts
@@ -10,9 +13,6 @@
 - history(time and task) tracker
 - stats
 - leaderboards
-
-### Homepage
-![homepage](readme-img/homepage.jpg)
 
 ### How to run the program with npm:
 - clone the repository

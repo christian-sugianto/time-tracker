@@ -4,11 +4,11 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 
-// Load input validation
+// load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-// Load User model
+// load User model
 const User = require("../../models/User");
 
 // get all users
@@ -35,7 +35,6 @@ router.get('/id/:id', function(req,res) {
       }
     });
 });
-
 
 // delete user by id
 router.delete('/id/:id', function(req,res) {
@@ -128,7 +127,7 @@ router.post("/login", (req, res) => {
   User.findOne({ email }).then(user => {
     // Check if user exists
     if (!user) {
-      return res.status(404).json({ emailnotfound: "Email not found" });
+      return res.json({ emailnotfound: "Email not found" });
     }
 
     // Check password
@@ -155,9 +154,7 @@ router.post("/login", (req, res) => {
           }
         );
       } else {
-        return res
-          .status(400)
-          .json({ passwordincorrect: "Password incorrect" });
+        return res.json({ passwordincorrect: "Password incorrect" });
       }
     });
   });

@@ -10,7 +10,6 @@ const initialState = {
     emailError: '',
     passwordError: '',
     passwordCfmError: '',
-    isDisplayed: false
 }
 
 class Register extends Component {
@@ -125,6 +124,9 @@ class Register extends Component {
                 url: 'http://localhost:3001/api/user/register',
                 data: body,
                 contentType: 'application/json',
+                success: function(data) {
+                    console.log(data);
+                },
                 error: function (jXHR, textStatus, errorThrown) {
                     alert(errorThrown);
                 }
@@ -156,7 +158,7 @@ class Register extends Component {
         const { errors } = this.state;
         return (
             <div className="signup">
-                <div className="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="modal-label-signup" aria-hidden="true">
+                <div className="modal fade" id="signupModal" tabIndex="-1" role="dialog" aria-labelledby="modal-label-signup" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content" id="modal-content-override">
                             <div className="modal-header" id="modal-header-override">
@@ -166,7 +168,7 @@ class Register extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <form novalidate onSubmit={this.onSubmit}>
+                                <form noValidate onSubmit={this.onSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="name" className="input-label">Name</label>
                                         <input type="text" className="form-control" id="name"

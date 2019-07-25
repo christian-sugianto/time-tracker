@@ -62,3 +62,8 @@
     font-weight: lighter;
     font-size: 14px;
 }
+
+.login-error {
+    text-align: center;
+    font-size: 16px;
+}
