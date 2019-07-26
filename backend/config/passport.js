@@ -24,13 +24,3 @@ module.exports = passport => {
     })
   );
 };
-
-passport.serializeUser(function (user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function (user, done) {
-  User.findById(user.id, function (err, user) {
-      done(err, user);
-  });
-});
