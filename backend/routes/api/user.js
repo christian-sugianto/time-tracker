@@ -111,23 +111,28 @@ router.post("/register", (req, res) => {
   });
 });
 
-// @route POST api/user/login
+// @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
 router.post("/login", (req, res) => {
+
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
+
   // Check validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
+
   const email = req.body.email;
   const password = req.body.password;
+
   // Find user by email
   User.findOne({ email }).then(user => {
+
     // Check if user exists
     if (!user) {
-      return res.json({ emailnotfound: "Email not found" });
+      return res.status(404).json({ emailnotfound: "Email not found" });
     }
 
     // Check password
@@ -147,28 +152,19 @@ router.post("/login", (req, res) => {
             expiresIn: 31556926 // 1 year in seconds
           },
           (err, token) => {
-            return res.json({
+            res.json({
               success: true,
-              token
+              token: "Bearer " + token
             });
           }
         );
       } else {
-        return res.json({ passwordincorrect: "Password incorrect" });
+        return res
+          .status(400)
+          .json({ passwordincorrect: "Password incorrect" });
       }
     });
   });
-});
-
-// get logged in user data
-router.get('/data', function(req, res) {
-
-  if (req.user === undefined) {
-    // The user is not logged in
-    res.status(200).send({"loggedIn": false});
-  } else {
-    res.send(req.user);
-  }
 });
 
 module.exports = router;
