@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import components
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
+import Register from './components/Auth/Register';
+import Login from './components/Auth/Login';
 
 //stylings
 import './styles/App.css';
@@ -26,6 +28,8 @@ class App extends Component {
             </div>
 
             <Route exact path="/" component={Home}/>
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
           </div>
         </div>
       </Router>

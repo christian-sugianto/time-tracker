@@ -1,10 +1,11 @@
 const express = require('express');
-const session = require('express-session');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
-const cors = require('cors'); // addition we make
-const fileUpload = require('express-fileupload'); //addition we make
+const cors = require('cors');
+const fileUpload = require('express-fileupload');
+const flash = require('connect-flash');
+
 const user = require('./routes/api/user');
 
 const app = express();
@@ -16,6 +17,9 @@ app.use(
     })
   );
 app.use(bodyParser.json());
+
+// initialize connect flash
+app.use(flash());
 
 // use cors to allow cross-origin requests 
 app.use(cors());
@@ -34,12 +38,11 @@ mongoose
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
 // Passport config
 require("./config/passport")(passport);
+
+// Passport middleware
+app.use(passport.initialize());
 
 // assign user routes
 app.use('/api/user', user);

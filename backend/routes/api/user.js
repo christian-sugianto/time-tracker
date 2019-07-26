@@ -147,9 +147,9 @@ router.post("/login", (req, res) => {
             expiresIn: 31556926 // 1 year in seconds
           },
           (err, token) => {
-            res.json({
+            return res.json({
               success: true,
-              token: "Bearer " + token
+              token
             });
           }
         );
@@ -158,6 +158,17 @@ router.post("/login", (req, res) => {
       }
     });
   });
+});
+
+// get logged in user data
+router.get('/data', function(req, res) {
+
+  if (req.user === undefined) {
+    // The user is not logged in
+    res.status(200).send({"loggedIn": false});
+  } else {
+    res.send(req.user);
+  }
 });
 
 module.exports = router;

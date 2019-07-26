@@ -1,3 +1,4 @@
+const passport = require('passport');
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const mongoose = require("mongoose");
@@ -29,7 +30,6 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (user, done) {
-  //If using Mongoose with MongoDB; if other you will need JS specific to that schema.
   User.findById(user.id, function (err, user) {
       done(err, user);
   });
