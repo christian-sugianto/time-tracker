@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import ClockPicture from '../../assets/pictures/clock.png'
 import LoginPicture from '../../assets/pictures/login.png'
 import SignupPicture from '../../assets/pictures/signup.png'
-import RegisterModal from '../Auth/RegisterModal'
-import LoginModal from '../Auth/LoginModal'
-import Login from '../Auth/Login'
-import Register from '../Auth/Register'
 
 class Navbar extends Component {
     constructor() {
