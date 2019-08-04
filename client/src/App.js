@@ -18,7 +18,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import store from "./store";
 
 //stylings
-import './styles/App.css';
+import './styles/Home.css';
 import './styles/Timer.css';
 import './styles/Helper.css';
 import './styles/History.css';
