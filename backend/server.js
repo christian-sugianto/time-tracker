@@ -2,9 +2,6 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
-const cors = require('cors');
-const fileUpload = require('express-fileupload');
-const flash = require('connect-flash');
 
 const user = require('./routes/api/user');
 
@@ -17,14 +14,6 @@ app.use(
     })
   );
 app.use(bodyParser.json());
-
-// initialize connect flash
-app.use(flash());
-
-// use cors to allow cross-origin requests 
-app.use(cors());
-// use fileuplaod for uploading files. 
-app.use(fileUpload());
 
 // DB Config
 const db = require("./config/keys").mongoURI;
