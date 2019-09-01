@@ -24,12 +24,12 @@ class Navbar extends Component {
 
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
+                        {/* <li className="nav-item active">
                             <a className="nav-link" href="#">Stats</a>
                         </li>
                         <li className="nav-item active">
                             <a className="nav-link" href="#">Leaderboard</a>
-                        </li>
+                        </li> */}
                     </ul>
 
                     <ul className="navbar-nav ml-auto">
