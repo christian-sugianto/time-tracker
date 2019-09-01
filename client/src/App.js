@@ -7,10 +7,10 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 
 
 // import components
-import Navbar from './components/navbar/Navbar';
-import Home from './components/home/Home';
-import Register from './components/auth/Register';
-import Login from './components/auth/Login';
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import Register from './components/Auth/Register';
+import Login from './components/Auth/Login';
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 
@@ -24,7 +24,6 @@ import './styles/Helper.css';
 import './styles/History.css';
 import './styles/Auth.css';
 import './styles/Navbar.css';
-
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
