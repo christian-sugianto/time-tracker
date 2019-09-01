@@ -9,10 +9,10 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 // import components
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
-import Register from './components/Auth/Register';
-import Login from './components/Auth/Login';
-import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
+// import Register from './components/Auth/Register';
+// import Login from './components/Auth/Login';
+// import PrivateRoute from "./components/private-route/PrivateRoute";
+// import Dashboard from "./components/dashboard/Dashboard";
 
 // redux store
 import store from "./store";
@@ -59,11 +59,11 @@ class App extends Component {
               </div>
 
               <Route exact path="/" component={Home}/>
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Switch>
+              {/* <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} /> */}
+              {/* <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            </Switch>
+            </Switch> */}
             </div>
           </div>
         </Router>
