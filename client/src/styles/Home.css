@@ -1,7 +1,7 @@
 #app-container-override {
     background-color: #fff5ee;
     padding: 0;
-    height: 100%;
+    height: 100vh;
     padding-bottom: 250px;
 }
 

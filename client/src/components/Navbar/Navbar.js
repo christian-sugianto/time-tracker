@@ -33,7 +33,7 @@ class Navbar extends Component {
                     </ul>
 
                     <ul className="navbar-nav ml-auto">
-                        <li className="nav-item active">
+                        {/* <li className="nav-item active">
                             <Link to='/Register' className="nav-link">
                                 <img src={SignupPicture} id="small-img-override"></img>
                                 Register
@@ -44,7 +44,7 @@ class Navbar extends Component {
                                 <img src={LoginPicture} id="small-img-override"></img>
                                 Login
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </nav>
