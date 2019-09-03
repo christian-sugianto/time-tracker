@@ -4,8 +4,7 @@
   "description": "Focus Timer",
   "main": "index.js",
   "scripts": {
-    "start": "npm run server",
-    "heroku-postbuild": "npm run client",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "install": "cd backend && npm install && cd ../client && npm install",
     "server": "cd backend && nodemon server.js",
     "client": "cd client && npm start"
