@@ -7,12 +7,12 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 
 
 // import components
-import Navbar from './components/Navbar/Navbar';
-import Home from './components/Home/Home';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
 import Register from './components/Auth/Register';
 import Login from './components/Auth/Login';
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Dashboard from "./components/dashboard/dashboard";
+import PrivateRoute from "./components/PrivateRoute";
+import Dashboard from "./components/UserDashboard";
 
 // redux store
 import store from "./store";
