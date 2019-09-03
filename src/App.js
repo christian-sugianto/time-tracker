@@ -5,7 +5,6 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 
-
 // import components
 import Navbar from './components/Navbar';
 import Home from './components/Home';

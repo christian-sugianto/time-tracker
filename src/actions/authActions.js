@@ -11,7 +11,7 @@ import backendURL from '../backendInfo';
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post("http://focus-timer-backend.herokuapp.com/api/user/register", userData)
+    .post(backendURL + "/api/user/register", userData)
     .then(res => history.push("/login")) // re-direct to login on successful register
     .catch(err =>
       dispatch({
@@ -24,7 +24,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post("http://focus-timer-backend.herokuapp.com/api/user/login", userData)
+    .post(backendURL + "/api/user/login", userData)
     .then(res => {
       // Save to localStorage
       // Set token to localStorage
