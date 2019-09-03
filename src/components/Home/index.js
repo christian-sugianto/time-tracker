@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 // import components
 import Timer from './Timer/Timer';

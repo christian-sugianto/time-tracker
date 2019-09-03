@@ -6,12 +6,13 @@ import {
   SET_CURRENT_USER,
   USER_LOADING
 } from "./types";
-import backendURL from '../backendInfo';
+
+import { url } from "../config/url"
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post(backendURL + "/api/user/register", userData)
+    .post(url + "/api/user/register", userData)
     .then(res => history.push("/login")) // re-direct to login on successful register
     .catch(err =>
       dispatch({
@@ -24,7 +25,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post(backendURL + "/api/user/login", userData)
+    .post(url + "/api/user/login", userData)
     .then(res => {
       // Save to localStorage
       // Set token to localStorage
