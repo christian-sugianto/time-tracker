@@ -6,11 +6,12 @@ import {
   SET_CURRENT_USER,
   USER_LOADING
 } from "./types";
+import backendURL from '../backendInfo';
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post("/api/user/register", userData)
+    .post("http://focus-timer-backend.herokuapp.com/api/user/register", userData)
     .then(res => history.push("/login")) // re-direct to login on successful register
     .catch(err =>
       dispatch({
@@ -23,7 +24,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post("/api/user/login", userData)
+    .post("http://focus-timer-backend.herokuapp.com/api/user/login", userData)
     .then(res => {
       // Save to localStorage
       // Set token to localStorage
