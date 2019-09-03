@@ -23,6 +23,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "devServer": {
+    "disableHostCheck": true
+  },
   "proxy": "http://localhost:3001/",
   "eslintConfig": {
     "extends": "react-app"
