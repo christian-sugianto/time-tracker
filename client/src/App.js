@@ -12,7 +12,7 @@ import Home from './components/Home/Home';
 import Register from './components/Auth/Register';
 import Login from './components/Auth/Login';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Dashboard from "./components/dashboard/dashboard";
 
 // redux store
 import store from "./store";
