@@ -60,9 +60,6 @@ class Login extends Component {
                     <div className="modal-content" id ="modal-content-override">
                         <div className="modal-header" id="modal-header-override">
                             <h5 className="modal-title" id="modal-label-login"> Login </h5>
-                            <button onClick={this.setToInitialState} type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
                         </div>
                         <div className="modal-body">
                             <form noValidate onSubmit = {this.onSubmit}>
