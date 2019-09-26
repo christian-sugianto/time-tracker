@@ -1,8 +1,8 @@
 #app-container-override {
     background-color: #fff5ee;
     padding: 0;
-    height: 100vh;
     padding-bottom: 250px;
+    background-size: cover;
 }
 
 .helper-col {
