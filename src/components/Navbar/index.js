@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
 import ClockPicture from '../../assets/pictures/clock.png'
-import LoginPicture from '../../assets/pictures/login.png'
-import SignupPicture from '../../assets/pictures/signup.png'
 
 class Navbar extends Component {
     constructor() {
@@ -45,24 +43,6 @@ class Navbar extends Component {
                             </li> */}
                         </ul>
                     }
-                    
-                    {this.IsUserLoggedin() === false &&
-                        <ul className="navbar-nav ml-auto">
-                            <li className="nav-item active">
-                                <Link to='/Register' className="nav-link">
-                                    <img src={SignupPicture} id="small-img-override"></img>
-                                    Register
-                                </Link>
-                            </li>
-                            <li className="nav-item active">
-                                <Link to="/Login" className="nav-link">
-                                    <img src={LoginPicture} id="small-img-override"></img>
-                                    Login
-                                </Link>
-                            </li>
-                        </ul>
-                    }
-                    
                 </div>
             </nav>
         )
