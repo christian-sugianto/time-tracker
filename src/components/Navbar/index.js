@@ -22,28 +22,6 @@ class Navbar extends Component {
                     FocusTime
                     <img className="img-fluid" id="img-override" src= { ClockPicture } alt="clock"></img>
                 </Link>
-
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    {this.IsUserLoggedin() === true &&
-                        <ul className="navbar-nav mr-auto">
-                            <li className="nav-item active">
-                                <Link to='/Dashboard' className="nav-link">
-                                    Dashboard
-                                </Link>
-                            </li>
-                            {/* <li className="nav-item active">
-                                <a className="nav-link" href="#">Stats</a>
-                            </li>
-                            <li className="nav-item active">
-                                <a className="nav-link" href="#">Leaderboard</a>
-                            </li> */}
-                        </ul>
-                    }
-                </div>
             </nav>
         )
     }

@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import components
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Register from './components/Auth/Register';
-import Login from './components/Auth/Login';
 
 //stylings
 import './styles/App.css';
@@ -13,7 +11,6 @@ import './styles/Home.css';
 import './styles/Timer.css';
 import './styles/Helper.css';
 import './styles/History.css';
-import './styles/Auth.css';
 import './styles/Navbar.css';
 
 class App extends Component {
@@ -29,8 +26,6 @@ class App extends Component {
             </div>
 
             <Route exact path="/" component={Home}/>
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
           </div>
         </div>
       </Router>
