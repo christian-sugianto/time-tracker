@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { recordStore } from "../../mobx/RecordStore";
+
 class Stopwatch extends Component {
     state = {
         timerOn: false,
@@ -11,12 +13,12 @@ class Stopwatch extends Component {
     pressKey = (e) => {
 
         // start or pause timer when space button is pressed 
-        if(e.keyCode === 32 && e.target === document.body){
+        if (e.keyCode === 32 && e.target === document.body) {
 
             // prevents web from scrolling down
             e.preventDefault();
 
-            if ((this.state.timerOn === false && this.state.timerTime === 0) || 
+            if ((this.state.timerOn === false && this.state.timerTime === 0) ||
                 (this.state.timerOn === false && this.state.timerTime > 0)) {
                 this.startTimer();
             }
@@ -27,14 +29,14 @@ class Stopwatch extends Component {
         }
 
         // alt button is pressed
-        else if(e.altKey && e.target === document.body && this.state.timerTime > 0) {
+        else if (e.altKey && e.target === document.body && this.state.timerTime > 0) {
 
-             // "alt+r" resets timer
+            // "alt+r" resets timer
             if (e.keyCode === 82) {
                 this.resetTimer();
             }
 
-             // "alt+e ends timer" 
+            // "alt+e ends timer" 
             else if (e.keyCode === 69) {
                 this.resetTimer();
             }
@@ -49,7 +51,7 @@ class Stopwatch extends Component {
                 timerTime: this.state.timerTime,
                 timerStart: Date.now() - this.state.timerTime
             });
-        
+
             this.timer = setInterval(() => {
                 this.setState({
                     timerTime: Date.now() - this.state.timerStart
@@ -57,7 +59,7 @@ class Stopwatch extends Component {
             }, 10);
         }
     }
-    
+
     // stop timer
     stopTimer = () => {
         this.setState({
@@ -77,12 +79,12 @@ class Stopwatch extends Component {
     }
 
     // adds event listener after first render
-    componentDidMount(){
+    componentDidMount() {
         document.addEventListener("keydown", this.pressKey, false);
     }
 
     // removes event listener to avoid memory leak
-    componentWillUnmount(){
+    componentWillUnmount() {
         document.removeEventListener("keydown", this.pressKey, false);
     }
 
@@ -107,21 +109,21 @@ class Stopwatch extends Component {
                         {seconds}
                     </div>
                 </div>
-                
+
                 <div className="timer-buttons d-flex flex-row justify-content-center">
-                    {this.state.timerOn === false && this.state.timerTime === 0 && 
+                    {this.state.timerOn === false && this.state.timerTime === 0 &&
                         (<button className="timer-button" onClick={this.startTimer}>Start</button>)}
-                    {this.state.timerTime > 0 && 
+                    {this.state.timerTime > 0 &&
                         (<button className="timer-button" onClick={this.resetTimer}>End</button>)}
-                    {this.state.timerTime > 0 && 
+                    {this.state.timerTime > 0 &&
                         (<div id="timer-button-divider"></div>)}
-                    {this.state.timerOn === true && 
+                    {this.state.timerOn === true &&
                         (<button className="timer-button" onClick={this.stopTimer}>Pause</button>)}
-                    {this.state.timerOn === false && this.state.timerTime > 0 && 
+                    {this.state.timerOn === false && this.state.timerTime > 0 &&
                         (<button className="timer-button" onClick={this.startTimer}>Resume</button>)}
-                    {this.state.timerTime > 0 && 
+                    {this.state.timerTime > 0 &&
                         (<div id="timer-button-divider"></div>)}
-                    {this.state.timerTime > 0 && 
+                    {this.state.timerTime > 0 &&
                         (<button className="timer-button" onClick={this.resetTimer}>Reset</button>)}
                 </div>
             </div>
