@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { recordStore } from "../../mobx/RecordStore";
+import { recordStore } from "../../../mobx/RecordStore";
 
 class Stopwatch extends Component {
     state = {
@@ -94,6 +94,7 @@ class Stopwatch extends Component {
         let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
         let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
 
+        console.log("timerTime is", seconds);
         return (
             <div className="Stopwatch">
                 <div className="timer-display d-flex flex-row justify-content-center">

@@ -1,20 +1,31 @@
 import { observable } from "mobx";
 
-type Record = {
-  desc: String,
-  startTime: Date,
-  endTime: Date
+export class RecordType {
+  desc: String = "";
+  startTime: Date = new Date();
+  endTime: Date = new Date();
 }
 
 class RecordStore {
   @observable
-  private _records: Array<Record> = [];
+  private _record: RecordType = new RecordType();
 
-  public get records(): Array<Record> {
+  @observable
+  private _records: Array<RecordType> = [];
+
+  public get record(): RecordType {
+    return this._record;
+  }
+
+  public set record(value: RecordType) {
+    this._record = value;
+  }
+
+  public get records(): Array<RecordType> {
     return this._records;
   }
 
-  public set records(value: Array<Record>) {
+  public set records(value: Array<RecordType>) {
     this._records = value;
   }
 }
