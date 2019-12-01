@@ -1,6 +1,14 @@
-import React, { Component } from "react"
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-import Record from "./Record"
+import React, { Component } from "react";
+import {
+  Link,
+  DirectLink,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller
+} from "react-scroll";
+import Record from "./Record";
 
 // components
 
@@ -11,54 +19,50 @@ class History extends Component {
   }
 
   componentDidMount() {
-
-    Events.scrollEvent.register('begin', function () {
+    Events.scrollEvent.register("begin", function () {
       console.log("begin", arguments);
     });
 
-    Events.scrollEvent.register('end', function () {
+    Events.scrollEvent.register("end", function () {
       console.log("end", arguments);
     });
-
   }
   scrollToTop() {
     scroll.scrollToTop();
   }
   scrollTo() {
-    scroller.scrollTo('scroll-to-element', {
+    scroller.scrollTo("scroll-to-element", {
       duration: 800,
       delay: 0,
-      smooth: 'easeInOutQuart'
-    })
+      smooth: "easeInOutQuart"
+    });
   }
   scrollToWithContainer() {
-
     let goToContainer = new Promise((resolve, reject) => {
-
-      Events.scrollEvent.register('end', () => {
+      Events.scrollEvent.register("end", () => {
         resolve();
-        Events.scrollEvent.remove('end');
+        Events.scrollEvent.remove("end");
       });
 
-      scroller.scrollTo('scroll-container', {
+      scroller.scrollTo("scroll-container", {
         duration: 800,
         delay: 0,
-        smooth: 'easeInOutQuart'
+        smooth: "easeInOutQuart"
       });
-
     });
 
     goToContainer.then(() =>
-      scroller.scrollTo('scroll-container-second-element', {
+      scroller.scrollTo("scroll-container-second-element", {
         duration: 800,
         delay: 0,
-        smooth: 'easeInOutQuart',
-        containerId: 'scroll-container'
-      }));
+        smooth: "easeInOutQuart",
+        containerId: "scroll-container"
+      })
+    );
   }
   componentWillUnmount() {
-    Events.scrollEvent.remove('begin');
-    Events.scrollEvent.remove('end');
+    Events.scrollEvent.remove("begin");
+    Events.scrollEvent.remove("end");
   }
 
   render() {
@@ -67,20 +71,30 @@ class History extends Component {
 
     return (
       <div className="history">
-        <div style={{ borderStyle: "none none solid none", borderWidth: "1px" }}>
+        <div
+          style={{ borderStyle: "none none solid none", borderWidth: "1px" }}
+        >
           <h2 style={{ padding: "10px 10px" }}> History </h2>
         </div>
 
-        <Element name="test7" className="element" id="containerElement" style={{
-          position: 'relative',
-          height: '331px',
-          overflow: 'scroll',
-          marginBottom: '100px',
-        }}>
-
-          <Element>
-            <Record desc="Studying Computer Systems" startTime={startTime} endTime={endTime} />
-          </Element>
+        <Element
+          name="test7"
+          className="element"
+          id="containerElement"
+          style={{
+            position: "relative",
+            height: "331px",
+            overflow: "scroll",
+            marginBottom: "100px"
+          }}
+        >
+          <div>
+            <Record
+              desc="Studying Computer Systems"
+              startTime={startTime}
+              endTime={endTime}
+            />
+          </div>
 
           <Element>
             <Record desc="Pooping" startTime={startTime} endTime={endTime} />
@@ -91,4 +105,4 @@ class History extends Component {
   }
 }
 
-export default History
+export default History;

@@ -94,7 +94,6 @@ class Stopwatch extends Component {
         let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
         let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
 
-        console.log("timerTime is", seconds);
         return (
             <div className="Stopwatch">
                 <div className="timer-display d-flex flex-row justify-content-center">
@@ -115,8 +114,6 @@ class Stopwatch extends Component {
                     {this.state.timerOn === false && this.state.timerTime === 0 &&
                         (<button className="timer-button" onClick={this.startTimer}>Start</button>)}
                     {this.state.timerTime > 0 &&
-                        (<button className="timer-button" onClick={this.resetTimer}>End</button>)}
-                    {this.state.timerTime > 0 &&
                         (<div id="timer-button-divider"></div>)}
                     {this.state.timerOn === true &&
                         (<button className="timer-button" onClick={this.stopTimer}>Pause</button>)}
@@ -125,7 +122,7 @@ class Stopwatch extends Component {
                     {this.state.timerTime > 0 &&
                         (<div id="timer-button-divider"></div>)}
                     {this.state.timerTime > 0 &&
-                        (<button className="timer-button" onClick={this.resetTimer}>Reset</button>)}
+                        (<button className="timer-button" onClick={this.resetTimer}>End</button>)}
                 </div>
             </div>
         );
