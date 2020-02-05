@@ -4,7 +4,8 @@ import Countdown from "./Countdown";
 
 class Timer extends Component {
   state = {
-    isCountdown: false
+    isCountdown: false,
+    desc: ""
   };
 
   // when key is pressed
@@ -67,16 +68,22 @@ class Timer extends Component {
         </div>
 
         <div className="timer-body">
-          {this.state.isCountdown === false && <Stopwatch />}
+          {this.state.isCountdown === false && <Stopwatch desc={this.state.desc} />}
           {this.state.isCountdown === true && <Countdown />}
         </div>
 
         <div className="timer-description">
           <div className="d-flex flex-row justify-content-center">
             <input
-              type="string"
+              type="text"
               className="add-description"
               placeholder="Add Description (Optional)"
+              value={this.state.desc}
+              onChange={(event) => {
+                this.setState({
+                  desc: event.target.value
+                })
+              }}
             />
           </div>
 

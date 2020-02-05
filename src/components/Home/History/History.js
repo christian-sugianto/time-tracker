@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import Record from "./Record";
 import { recordStore } from "../../../mobx/RecordStore";
-import { computed } from "mobx";
+import { computed, decorate } from "mobx";
+import { observer } from "mobx-react"
 
-// components
-class History extends Component {
+const History = observer(class History extends Component {
+  get records() {
+    return recordStore.records;
+  };
+
   render() {
-    const startTime = new Date(0, 0, 0, 10, 25, 0);
-    const endTime = new Date(0, 0, 0, 11, 0, 0);
+    console.log("is re-rendered");
 
     return (
       <div className="history">
@@ -18,7 +21,7 @@ class History extends Component {
         </div>
 
         <div className="scroll">
-          {recordStore._records.map(record =>
+          {this.records.map(record =>
             <Record desc={record.desc} startTime={record.startTime} endTime={record.entTime} />)}
           {/* <Record
             desc="Studying Computer Systems"
@@ -54,6 +57,10 @@ class History extends Component {
       </div>
     );
   }
-}
+})
+
+decorate(History, {
+  records: computed,
+})
 
 export default History;
