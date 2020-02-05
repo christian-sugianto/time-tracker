@@ -10,8 +10,6 @@ const History = observer(class History extends Component {
   };
 
   render() {
-    console.log("is re-rendered");
-
     return (
       <div className="history">
         <div
@@ -21,8 +19,10 @@ const History = observer(class History extends Component {
         </div>
 
         <div className="scroll">
-          {this.records.map(record =>
-            <Record desc={record.desc} startTime={record.startTime} endTime={record.entTime} />)}
+          {this.records.map(record => {
+            return <Record key={record.id} id={record.id} desc={record.desc}
+              startTime={record.startTime} endTime={record.entTime} />
+          })}
         </div>
       </div>
     );

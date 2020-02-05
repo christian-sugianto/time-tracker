@@ -66,6 +66,7 @@ class Stopwatch extends Component {
             timerOn: false,
         })
         let record = new RecordType();
+        record.id = recordStore.records.length;
         record.desc = this.props.desc;
         record.startTime = moment().subtract(this.state.timerTime, 'milliseconds');
         record.endTime = new Date();
@@ -82,6 +83,7 @@ class Stopwatch extends Component {
         })
         if (this.state.timerOn) {
             let record = new RecordType();
+            record.id = recordStore.records.length;
             record.desc = this.props.desc;
             record.startTime = moment().subtract(this.state.timerTime, 'milliseconds');
             record.endTime = new Date();

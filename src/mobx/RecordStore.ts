@@ -2,6 +2,7 @@ import { observable } from "mobx";
 
 export class RecordType {
   desc: string = "";
+  id: number = 0;
   startTime: Date = new Date();
   endTime: Date = new Date();
 }
@@ -15,7 +16,7 @@ class RecordStore {
   }
 
   public addRecord(value: RecordType) {
-    this._records.push(value);
+    this._records.unshift(value);
   }
 
   public deleteRecord(index: number) {

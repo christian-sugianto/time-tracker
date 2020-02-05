@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import moment from "moment";
+import { recordStore } from "../../../mobx/RecordStore";
 
 class Record extends Component {
   state = {};
 
   render() {
-    const { desc, startTime, endTime, handleDelete } = this.props;
+    const { id, desc, startTime, endTime } = this.props;
 
     const momentStartTime = moment(startTime);
     const momentEndTime = moment(endTime);
@@ -30,7 +31,9 @@ class Record extends Component {
           <div style={{ display: "inline-block", width: "97%" }}>
             {desc}
           </div>
-          <button onClick={handleDelete} style={deleteButtonStyle}>
+          <button onClick={() => {
+            recordStore.deleteRecord(id)
+          }} style={deleteButtonStyle}>
             x
           </button>
         </div>
@@ -40,7 +43,7 @@ class Record extends Component {
           </div>
           <div style={{ width: '20%' }}>{formattedDuration}</div>
         </div>
-      </div>
+      </div >
     );
   }
 }
