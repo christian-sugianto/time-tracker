@@ -5,3 +5,27 @@
   width: 300px;
   height: 400px;
 }
+
+.history .scroll {
+   overflow: auto;
+   width: auto;
+   height: 331px;
+}
+
+::-webkit-scrollbar {
+   width: 10px;
+ }
+
+::-webkit-scrollbar-track {
+   background: #fff5ee; 
+ }
+
+::-webkit-scrollbar-thumb {
+   background: #88664d; 
+   border-radius: 10px;
+ }
+ 
+::-webkit-scrollbar-thumb:hover {
+   background: #555; 
+ }
+
