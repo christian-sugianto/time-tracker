@@ -1,14 +1,14 @@
 import { observable } from "mobx";
 
-export class RecordType {
-  desc: String = "";
-  startTime: Date = new Date();
-  endTime: Date = new Date();
+export interface RecordType {
+  desc: string;
+  startTime: Date;
+  endTime: Date;
 }
 
 class RecordStore {
   @observable
-  private _record: RecordType = new RecordType();
+  private _record: RecordType = { desc: "", startTime: new Date(), endTime: new Date() };
 
   @observable
   private _records: Array<RecordType> = [];
@@ -25,8 +25,12 @@ class RecordStore {
     return this._records;
   }
 
-  public set records(value: Array<RecordType>) {
-    this._records = value;
+  public addRecord(value: RecordType) {
+    this._records.push(value);
+  }
+
+  public deleteRecord(index: number) {
+    this._records.splice(index, 1);
   }
 }
 
