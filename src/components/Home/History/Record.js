@@ -10,8 +10,8 @@ class Record extends Component {
     const momentStartTime = moment(startTime);
     const momentEndTime = moment(endTime);
 
-    const formattedStartTime = momentStartTime.format("hh:mm");
-    const formattedEndTime = momentEndTime.format("hh:mm");
+    const formattedStartTime = momentStartTime.format("hh:mmA");
+    const formattedEndTime = momentEndTime.format("hh:mmA");
 
     const duration = moment.duration(momentEndTime.diff(momentStartTime));
     const formattedDuration =
@@ -27,7 +27,7 @@ class Record extends Component {
     return (
       <div style={borderStyle}>
         <div style={{ marginBottom: "10px", color: "#FF994E" }}>
-          <div style={{ display: "inline-block", width: "263px" }}>
+          <div style={{ display: "inline-block", width: "97%" }}>
             {desc}
           </div>
           <button onClick={handleDelete} style={deleteButtonStyle}>
@@ -35,10 +35,10 @@ class Record extends Component {
           </button>
         </div>
         <div style={timeStyle}>
-          <div>
+          <div style={{ width: '80%' }}>
             {formattedStartTime}-{formattedEndTime}
           </div>
-          <div style={{ marginLeft: "140px" }}>{formattedDuration}</div>
+          <div style={{ width: '20%' }}>{formattedDuration}</div>
         </div>
       </div>
     );
@@ -50,6 +50,7 @@ const borderStyle = {
   borderStyle: "solid",
   borderWidth: "1px",
   height: "65px",
+  width: "100%",
   backgroundColor: "#634832",
   color: "white",
   marginBottom: "3px",
@@ -62,7 +63,7 @@ const deleteButtonStyle = {
   display: "inline-block",
   textAlign: "center",
   fontSize: "15px",
-  width: "8px",
+  width: "3%",
   height: "1px",
   backgroundColor: "#634832",
   color: "#F08080",

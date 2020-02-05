@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import { recordStore, RecordType } from "../../../mobx/RecordStore";
+import moment from "moment";
 
 class Stopwatch extends Component {
     state = {
@@ -65,6 +65,11 @@ class Stopwatch extends Component {
         this.setState({
             timerOn: false,
         })
+        let record = new RecordType();
+        record.desc = this.props.desc;
+        record.startTime = moment().subtract(this.state.timerTime, 'milliseconds');
+        record.endTime = new Date();
+        recordStore.addRecord(record);
         clearInterval(this.timer);
     }
 
@@ -75,13 +80,13 @@ class Stopwatch extends Component {
             timerStart: 0,
             timerTime: 0
         })
-        let record = new RecordType();
-
-        record.desc = this.props.desc;
-        record.startTime = new Date(0, 0, 0, 0, 0, 0, this.state.timerStart);
-        record.endTime = new Date(0, 0, 0, 0, 0, 0, this.state.timerStart + this.state.timerTime);
-
-        recordStore.addRecord(record);
+        if (this.state.timerOn) {
+            let record = new RecordType();
+            record.desc = this.props.desc;
+            record.startTime = moment().subtract(this.state.timerTime, 'milliseconds');
+            record.endTime = new Date();
+            recordStore.addRecord(record);
+        }
         clearInterval(this.timer);
     }
 

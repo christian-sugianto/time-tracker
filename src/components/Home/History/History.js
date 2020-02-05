@@ -23,36 +23,6 @@ const History = observer(class History extends Component {
         <div className="scroll">
           {this.records.map(record =>
             <Record desc={record.desc} startTime={record.startTime} endTime={record.entTime} />)}
-          {/* <Record
-            desc="Studying Computer Systems"
-            startTime={startTime}
-            endTime={endTime}
-          />
-          <Record desc="Pooping" startTime={startTime} endTime={endTime} />
-          <Record
-            desc="Studying Computer Systems"
-            startTime={startTime}
-            endTime={endTime}
-          />
-          <Record desc="Pooping" startTime={startTime} endTime={endTime} />
-          <Record
-            desc="Studying Computer Systems"
-            startTime={startTime}
-            endTime={endTime}
-          />
-          <Record desc="Pooping" startTime={startTime} endTime={endTime} />
-          <Record
-            desc="Studying Computer Systems"
-            startTime={startTime}
-            endTime={endTime}
-          />
-          <Record desc="Pooping" startTime={startTime} endTime={endTime} />
-          <Record
-            desc="Studying Computer Systems"
-            startTime={startTime}
-            endTime={endTime}
-          />
-          <Record desc="Pooping" startTime={startTime} endTime={endTime} /> */}
         </div>
       </div>
     );

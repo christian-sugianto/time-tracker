@@ -89,8 +89,8 @@ class Timer extends Component {
 
           <div className="d-flex flex-row justify-content-center">
             <p className="add-description-text">
-              Everytime timer ends, task description and time <br />
-              stamp will be recorded in History
+              Everytime timer pause or ends, task description <br />
+              and timestamp will be recorded in History
             </p>
           </div>
         </div>
