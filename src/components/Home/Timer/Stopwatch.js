@@ -113,8 +113,6 @@ class Stopwatch extends Component {
                 <div className="timer-buttons d-flex flex-row justify-content-center">
                     {this.state.timerOn === false && this.state.timerTime === 0 &&
                         (<button className="timer-button" onClick={this.startTimer}>Start</button>)}
-                    {this.state.timerTime > 0 &&
-                        (<div id="timer-button-divider"></div>)}
                     {this.state.timerOn === true &&
                         (<button className="timer-button" onClick={this.stopTimer}>Pause</button>)}
                     {this.state.timerOn === false && this.state.timerTime > 0 &&
