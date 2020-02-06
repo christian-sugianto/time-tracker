@@ -14,7 +14,7 @@ import './styles/History.css';
 import './styles/Navbar.css';
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <Router>
         <div className="App">
@@ -25,7 +25,7 @@ class App extends Component {
               </div>
             </div>
 
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={Home} />
           </div>
         </div>
       </Router>

@@ -20,6 +20,7 @@ class RecordStore {
   }
 
   public deleteRecord(id: string) {
+    // eslint-disable-next-line
     this._records.map(record => {
       if (record.id === id) {
         const index = this._records.indexOf(record);

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 // components
 import Shortcut from './Shortcut';
-import Notification from './Notification'
 
 class Helper extends Component {
 

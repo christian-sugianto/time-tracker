@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { recordStore, RecordType } from "../../../mobx/RecordStore";
-import moment from "moment";
+import { recordStore } from "../../../mobx/RecordStore";
 import { mapRecord } from "../../../utils/recordMapper";
 
 class Stopwatch extends Component {

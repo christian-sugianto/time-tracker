@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { RecordType, recordStore } from "../../../mobx/RecordStore";
-import moment from "moment";
+import { recordStore } from "../../../mobx/RecordStore";
 import { mapRecord } from "../../../utils/recordMapper";
 
 class Countdown extends Component {
@@ -295,11 +294,11 @@ class Countdown extends Component {
                         (<button className="timer-button" onClick={this.stopTimer}>Pause</button>)}
                     {this.state.timerOn === false && (this.state.timerStart !== 0 && this.state.timerStart !== this.state.timerTime && this.state.timerTime !== 0) &&
                         (<button className="timer-button" onClick={this.startTimer}>Resume</button>)}
-                    {((this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0) ||
-                        this.state.timerOn === true && this.state.timerTime >= 1000) &&
+                    {(((this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0)) ||
+                        (this.state.timerOn === true && this.state.timerTime >= 1000)) &&
                         (<div id="timer-button-divider"></div>)}
-                    {((this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0) ||
-                        this.state.timerOn === true && this.state.timerTime >= 1000) && (<button className="timer-button" onClick={this.resetTimer}>End</button>)}
+                    {(((this.state.timerOn === false || this.state.timerTime < 1000) && (this.state.timerStart !== this.state.timerTime && this.state.timerStart > 0)) ||
+                        (this.state.timerOn === true && this.state.timerTime >= 1000)) && (<button className="timer-button" onClick={this.resetTimer}>End</button>)}
                 </div>
             </div>
         );
