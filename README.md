@@ -19,7 +19,7 @@ History containing records that show your productivity period!
 Shortcuts to make life easier B)
 
 ### Mobile Friendly
-![MobileFriendly_Demo] (readme-img/mobile-friendly.png)
+![MobileFriendly_Demo](readme-img/mobile-friendly.png)
 It's mobile-friendly too! :D
 
 
