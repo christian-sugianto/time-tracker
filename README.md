@@ -1,18 +1,11 @@
 # Focus Timer
 
 ### Live Prototype
-http://focus-timer-frontend.herokuapp.com/
+http://my-time-tracker-app.herokuapp.com/
 
 ### Homepage
 ![Homepage Demo](readme-img/homepage.jpg)
 
-### Currently Functional:
-- Both Stopwatch and Countdown Timer
-- Key Shortcuts
-- User Signup and Login
-
-### Other Features(In development):
-- history(time and task) tracker
-- stats
-- leaderboards
+### Description
+A time-tracker app which keeps you productive :)
 
