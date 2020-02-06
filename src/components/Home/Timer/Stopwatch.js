@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { recordStore, RecordType } from "../../../mobx/RecordStore";
 import moment from "moment";
+import { mapRecord } from "../../../utils/recordMapper";
 
 class Stopwatch extends Component {
     state = {
         timerOn: false,
         timerStart: 0,
         timerTime: 0,
+        startDate: new Date()
     };
 
     // change key press based on key presses
@@ -45,6 +47,9 @@ class Stopwatch extends Component {
 
     // start timer
     startTimer = () => {
+        this.setState({
+            startDate: new Date()
+        })
         if (this.state.timerOn === false) {
             this.setState({
                 timerOn: true,
@@ -65,11 +70,7 @@ class Stopwatch extends Component {
         this.setState({
             timerOn: false,
         })
-        let record = new RecordType();
-        record.id = recordStore.records.length;
-        record.desc = this.props.desc;
-        record.startTime = moment().subtract(this.state.timerTime, 'milliseconds');
-        record.endTime = new Date();
+        const record = mapRecord(recordStore.records.length, this.props.desc, this.state.startDate);
         recordStore.addRecord(record);
         clearInterval(this.timer);
     }
@@ -82,11 +83,7 @@ class Stopwatch extends Component {
             timerTime: 0
         })
         if (this.state.timerOn) {
-            let record = new RecordType();
-            record.id = recordStore.records.length;
-            record.desc = this.props.desc;
-            record.startTime = moment().subtract(this.state.timerTime, 'milliseconds');
-            record.endTime = new Date();
+            const record = mapRecord(recordStore.records.length, this.props.desc, this.state.startDate);
             recordStore.addRecord(record);
         }
         clearInterval(this.timer);

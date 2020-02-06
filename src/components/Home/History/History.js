@@ -21,7 +21,7 @@ const History = observer(class History extends Component {
         <div className="scroll">
           {this.records.map(record => {
             return <Record key={record.id} id={record.id} desc={record.desc}
-              startTime={record.startTime} endTime={record.entTime} />
+              startTime={record.startTime} endTime={record.endTime} />
           })}
         </div>
       </div>

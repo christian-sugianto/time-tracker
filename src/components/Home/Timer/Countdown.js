@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { RecordType, recordStore } from "../../../mobx/RecordStore";
+import moment from "moment";
+import { mapRecord } from "../../../utils/recordMapper";
 
 class Countdown extends Component {
     state = {
         timerOn: false,
         timerStart: 0,
         timerTime: 0,
+        startDate: new Date(),
         rawNumbersEntered: [0, 0, 0, 0, 0, 0],
         numbersEntered: [0, 0, 0, 0, 0, 0],
         lengthOfNumbers: 0
@@ -132,6 +136,9 @@ class Countdown extends Component {
 
     // start timer
     startTimer = () => {
+        this.setState({
+            startDate: new Date()
+        })
 
         // max time can be input
         if (this.state.timerTime > 360000000) {
@@ -168,6 +175,9 @@ class Countdown extends Component {
 
     // stops timer
     stopTimer = () => {
+        const record = mapRecord(recordStore.records.length, this.props.desc, this.state.startDate);
+        recordStore.addRecord(record);
+
         clearInterval(this.timer);
         this.setState({ timerOn: false });
     };
@@ -182,6 +192,10 @@ class Countdown extends Component {
             numbersEntered: [0, 0, 0, 0, 0, 0],
             lengthOfNumbers: 0
         })
+        if (this.state.timerOn) {
+            const record = mapRecord(recordStore.records.length, this.props.desc, this.state.startDate);
+            recordStore.addRecord(record);
+        }
         clearInterval(this.timer);
     };
 

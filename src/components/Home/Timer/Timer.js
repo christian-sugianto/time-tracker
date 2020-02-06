@@ -69,7 +69,7 @@ class Timer extends Component {
 
         <div className="timer-body">
           {this.state.isCountdown === false && <Stopwatch desc={this.state.desc} />}
-          {this.state.isCountdown === true && <Countdown />}
+          {this.state.isCountdown === true && <Countdown desc={this.state.desc} />}
         </div>
 
         <div className="timer-description">
