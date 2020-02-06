@@ -116,10 +116,13 @@
 
 @media only screen and (max-width: 450px) {
     .timer {
-        width: 90%;
+        width: 95%;
     }
     .timer-display{
-        font-size: 4em;
+        font-size: 3.5em;
+    }
+    .add-description {
+        font-size: 20px;
     }
  }
 
