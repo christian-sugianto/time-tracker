@@ -9,7 +9,7 @@ http://my-time-tracker-app.herokuapp.com/
 ## Features
 ### Countdown and Stopwatch Timer
 <img src="readme-img/countdown.png" width="50%">
-<img src="readme-img/stopwtach.png" width="50%">
+<img src="readme-img/stopwatch.png" width="50%">
 Track your time with either the countdown or stopwatch timer!
 
 ### History
