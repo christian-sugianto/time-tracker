@@ -70,7 +70,7 @@ class Stopwatch extends Component {
         this.setState({
             timerOn: false,
         })
-        const record = mapRecord(recordStore.records.length, this.props.desc, this.state.startDate);
+        const record = mapRecord(this.props.desc, this.state.startDate);
         recordStore.addRecord(record);
         clearInterval(this.timer);
     }
@@ -83,7 +83,7 @@ class Stopwatch extends Component {
             timerTime: 0
         })
         if (this.state.timerOn) {
-            const record = mapRecord(recordStore.records.length, this.props.desc, this.state.startDate);
+            const record = mapRecord(this.props.desc, this.state.startDate);
             recordStore.addRecord(record);
         }
         clearInterval(this.timer);

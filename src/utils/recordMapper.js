@@ -1,8 +1,10 @@
 import { RecordType } from "../mobx/RecordStore";
 
-export const mapRecord = (id, desc, startTime) => {
+const uuid = require('uuid');
+
+export const mapRecord = (desc, startTime) => {
   let record = new RecordType();
-  record.id = id;
+  record.id = uuid.v4();
   record.desc = desc;
   record.startTime = new Date(startTime);
   record.endTime = new Date();
