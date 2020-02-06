@@ -19,7 +19,7 @@
 .timer-type {
     background-color: #634832;
     height: 70px;
-    width: 300px;
+    width: 50%;
     border-style: none none solid none;
     border-width: 1px;
     border-color: white;
@@ -91,7 +91,7 @@
 }
 
 .timer-input-button {
-    width: 66px;
+    width: 14%;
     height: 36px;
     background-color: white;
     border: 1px solid #967259;
@@ -106,11 +106,20 @@
 }
 
 .big-timer-input-button {
-    width: 120px;
+    width: 30%;
 }
 
 .timer-input-button:active {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+@media only screen and (max-width: 450px) {
+    .timer {
+        width: 90%;
+    }
+    .timer-display{
+        font-size: 4em;
+    }
+ }
 

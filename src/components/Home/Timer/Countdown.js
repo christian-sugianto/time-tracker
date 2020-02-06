@@ -279,12 +279,12 @@ class Countdown extends Component {
                                 )}
 
                                 {(this.state.numberEntered !== 1 && this.state.numberEntered !== 3) && (
-                                    <div className="normal-timer-buttons">
+                                    <>
                                         <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 6)}> 6 </button>
                                         <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 7)}> 7 </button>
                                         <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 8)}> 8 </button>
                                         <button className="timer-input-button p-2" onClick={this.enterNumber.bind(this, 9)}> 9 </button>
-                                    </div>
+                                    </>
                                 )}
                                 <button className="timer-input-button big-timer-input-button p-2" onClick={this.clearNumbers}> Clear </button>
                             </div>
